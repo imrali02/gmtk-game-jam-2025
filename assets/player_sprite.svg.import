@@ -10,7 +10,7 @@ metadata={
 
 [deps]
 
-source_file="res://entities/player/player_sprite.svg"
+source_file="res://assets/player_sprite.svg"
 dest_files=["res://.godot/imported/player_sprite.svg-40de44a0199e37b7f31b2fbeaeb466c7.ctex"]
 
 [params]

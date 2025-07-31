@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ewcwoh6cpxp0"]
+[gd_scene load_steps=4 format=3 uid="uid://ewcwoh6cpxp0"]
 
 [ext_resource type="Script" uid="uid://cj35ng02p8olb" path="res://entities/player/player.gd" id="1_yvnxr"]
-[ext_resource type="Texture2D" uid="uid://bcr0m866w0vfl" path="res://entities/player/player_sprite.svg" id="2_ixnlm"]
-[ext_resource type="Script" uid="uid://c72nxe23ro3or" path="res://entities/player/player_fallback.gd" id="3_fallback"]
+[ext_resource type="Texture2D" uid="uid://bcr0m866w0vfl" path="res://assets/player_sprite.svg" id="2_abrql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqvnj"]
 radius = 24.0
@@ -12,7 +11,7 @@ script = ExtResource("1_yvnxr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_ixnlm")
+texture = ExtResource("2_abrql")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
@@ -26,6 +25,3 @@ color = Color(0.2, 0.4, 0.8, 1)
 shape = SubResource("CircleShape2D_qqvnj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
-[node name="FallbackVisual" type="Node2D" parent="."]
-script = ExtResource("3_fallback")

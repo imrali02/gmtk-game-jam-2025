@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://co2udexlbh6kd"]
+[gd_scene load_steps=8 format=3 uid="uid://co2udexlbh6kd"]
 
 [ext_resource type="PackedScene" uid="uid://ewcwoh6cpxp0" path="res://entities/player/player.tscn" id="1_yvnxr"]
+[ext_resource type="PackedScene" uid="uid://dft4sqilc74ab" path="res://entities/npc/enemy.tscn" id="2_748nt"]
+[ext_resource type="Script" uid="uid://cb42pihyr345n" path="res://entities/npc/enemy.gd" id="3_vhr6a"]
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="3_yvnxr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od3m6"]
@@ -16,6 +18,12 @@ size = Vector2(1066, 20)
 [node name="Player" parent="." instance=ExtResource("1_yvnxr")]
 z_index = 1
 position = Vector2(512, 300)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_748nt")]
+z_index = 1
+position = Vector2(812, 327)
+script = ExtResource("3_vhr6a")
+player = NodePath("../Player")
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource("3_yvnxr")

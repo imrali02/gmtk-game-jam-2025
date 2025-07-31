@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cj35ng02p8olb" path="res://entities/player/player.gd" id="1_yvnxr"]
 [ext_resource type="Texture2D" uid="uid://bcr0m866w0vfl" path="res://assets/player_sprite.svg" id="2_abrql"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qqvnj"]
-radius = 24.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abrql"]
+size = Vector2(55, 57)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_yvnxr")
@@ -13,15 +13,8 @@ script = ExtResource("1_yvnxr")
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_abrql")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -1
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-color = Color(0.2, 0.4, 0.8, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_qqvnj")
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_abrql")
 
 [node name="Camera2D" type="Camera2D" parent="."]

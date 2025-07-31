@@ -17,6 +17,12 @@ func _on_collectible_collected():
 	# Update the score display
 	update_score_display()
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("rewind"):
+		$RewindLabel.visible = true
+	if Input.is_action_just_released("rewind"):
+		$RewindLabel.visible = false
+		
 func update_score_display():
 	# Update the score label
 	$ScoreLabel.text = "Score: " + str(score)

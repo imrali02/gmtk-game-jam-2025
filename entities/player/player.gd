@@ -40,11 +40,14 @@ func _physics_process(delta: float) -> void:
 		compute_rewind(delta)
 		
 func compute_rewind(delta: float) -> void:
+	rewind_values["position"].pop_back()
 	var pos = rewind_values["position"].pop_back()
 	
-	if len(rewind_values["position"]) == 0:
+	if len(rewind_values["position"]) <= 1:
 		resume()
 		global_position = pos
+		rewind_values["position"].clear()
+		rewind_values["velocity"].clear()
 		return
 	
 	global_position = pos

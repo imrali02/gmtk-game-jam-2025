@@ -106,4 +106,5 @@ shape = SubResource("RectangleShape2D_qqvnj")
 position = Vector2(511, 275)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_748nt")]
+position = Vector2(34, 34)
 player = NodePath("../Player")

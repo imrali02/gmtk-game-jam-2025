@@ -20,8 +20,6 @@ func _ready():
 	randomnum = rng.randf()
 	
 
-	
-
 func _physics_process(delta):
 	match state:
 		ROAM:
@@ -51,5 +49,5 @@ func get_circle_position(random):
 	return Vector2(x, y)
 
 
-func _on_AttackTimer_timeout():
+func _on_timer_timeout():
 	state = ATTACK

@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 		resume()
 			
 func rewind() -> void:
-	$RewindablePlayer.rewind()
+	get_tree().call_group("rewindable", "rewind")
 	
 func resume() -> void:
-	$RewindablePlayer.resume()
+	get_tree().call_group("rewindable", "resume")

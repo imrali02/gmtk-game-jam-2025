@@ -1,10 +1,17 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 50.0
-@export var replay_duration: float = 3.0
-var direction: Vector2
+var speed = 600.0
+var acceleration: float = 10.0
+var friction: float = 8.0
+var direction: Vector2 = Vector2.ZERO
 
+var dash_speed: float = 1200.0
+var is_dashing: bool = false
+var can_dash: bool = true
+var dash_direction: Vector2 = Vector2.ZERO
+
+var replay_duration: float = 3.0
 var rewinding: bool = false
 var rewind_values = {
 	"position": [],
@@ -24,10 +31,25 @@ func _process(delta: float) -> void:
 	if rewinding:
 		return
 		
-	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	direction = direction.normalized()
+	
+	if direction.abs() > Vector2.ZERO and not is_dashing:
+		velocity = lerp(velocity, direction * speed, acceleration * delta)
+	else:
+		velocity = lerp(velocity, Vector2.ZERO, friction * delta)
+		
+		if velocity.abs() <= Vector2.ONE.abs() * speed:
+			is_dashing = false
+			can_dash = true
+		
+	if direction.abs() > Vector2.ZERO and Input.is_action_just_pressed("dash") and can_dash:
+		is_dashing = true
+		can_dash = false
+		velocity = lerp(velocity, direction * dash_speed, (dash_speed / 4) * delta)
 
 func _physics_process(delta: float) -> void:
-	velocity = direction * speed * delta * 1000
 	move_and_slide()
 	
 	if not rewinding:

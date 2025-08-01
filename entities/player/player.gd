@@ -1,8 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
-@export var speed = 300.0
+@export var speed = 50.0
 @export var replay_duration: float = 3.0
+var direction: Vector2
 
 var rewinding: bool = false
 var rewind_values = {
@@ -23,10 +24,10 @@ func _process(delta: float) -> void:
 	if rewinding:
 		return
 		
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * speed
+	direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 
 func _physics_process(delta: float) -> void:
+	velocity = direction * speed * delta * 1000
 	move_and_slide()
 	
 	if not rewinding:

@@ -10,6 +10,7 @@ extends CanvasLayer
 func _ready():
 	rewind_label.visible = false
 	$GameOverScreen.visible = false
+	$PauseMenu.visible = false
 	
 	add_to_group("rewindable")
 	add_to_group("game_over")
@@ -17,6 +18,9 @@ func _ready():
 	update_ui()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		$PauseMenu.toggle_pause()
+	
 	update_ui()
 	
 func update_ui() -> void:

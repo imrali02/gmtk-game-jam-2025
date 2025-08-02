@@ -7,3 +7,4 @@
 script = ExtResource("1_wdj6m")
 
 [node name="MainMenuUi" parent="." instance=ExtResource("1_2262g")]
+layer = 0

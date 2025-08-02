@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://eur81cofudkw" path="res://entities/npc/chesire-cat/chesire-cat.gd" id="1_ghoej"]
 [ext_resource type="Texture2D" uid="uid://du5vyglsnjya4" path="res://assets/chesire_cat_temp.png" id="2_3t832"]
-[ext_resource type="PackedScene" uid="uid://c8l6g5sdy7l07" path="res://entities/rewinder/rewinder.tscn" id="3_lfmxs"]
+[ext_resource type="Script" uid="uid://b4sw1u6yl27fx" path="res://entities/rewinder.gd" id="3_3kbga"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3t832"]
 
@@ -41,4 +41,6 @@ root_node = NodePath(".")
 tree_root = SubResource("AnimationNodeStateMachine_eqspu")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="Rewinder" parent="." instance=ExtResource("3_lfmxs")]
+[node name="Rewinder" type="Node2D" parent="."]
+script = ExtResource("3_3kbga")
+metadata/_custom_type_script = "uid://b4sw1u6yl27fx"

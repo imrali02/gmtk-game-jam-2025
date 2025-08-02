@@ -41,6 +41,14 @@ func resume() -> void:
 func game_over() -> void:
 	update_ui()
 	$GameOverScreen.visible = true
+	
+func disable_boss_ui() -> void:
+	boss_health_bar.visible = false
+	boss_label .visible = false
+
+func enable_boss_ui() -> void:
+	boss_health_bar.visible = true
+	boss_label .visible = true
 
 func _on_restart_button_pressed():
 	Global.restart()

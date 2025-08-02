@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="raccacoonie"
-run/main_scene="uid://p3ov5jl3bpvr"
+run/main_scene="uid://dldrkmmba867q"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://assets/icon.svg"
 
@@ -25,6 +25,10 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[gui]
+
+theme/custom="uid://ciw750uu18wnw"
 
 [input]
 

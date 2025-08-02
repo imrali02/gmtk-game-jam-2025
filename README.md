@@ -3,10 +3,10 @@
 A top-down 2D game prototype created with Godot
 
 ## Assets Used (Attribution)
+
 https://actg.itch.io/trees
 https://www.dafont.com/cotton-cloud.font
-
-
+https://pixabay.com/sound-effects/mechanical-stopwatch-ticking-30-seconds-364932/
 
 ## Controls
 

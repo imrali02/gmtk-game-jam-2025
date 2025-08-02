@@ -5,4 +5,7 @@ func _ready():
 
 func _on_attack_timer_timeout():
 	$AttackTimer.start()
-	pass
+	
+	# Call launch_attack on the Chesire Cat
+	if $"Chesire Cat" and not $"Chesire Cat".attack_in_progress:
+		$"Chesire Cat".launch_attack()

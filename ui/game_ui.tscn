@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdwgrh4m1l3bo"]
+
+[ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
+[ext_resource type="Texture2D" uid="uid://b8ar58qt7y7hk" path="res://assets/queen_sprite.png" id="2_w46tp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w46tp"]
+font_size = 111
+
+[sub_resource type="Theme" id="Theme_w46tp"]
+default_font_size = 55
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_dcmab")
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 80.0
+offset_right = 124.0
+offset_bottom = 106.0
+text = "Score: 0"
+metadata/_edit_use_anchors_ = false
+
+[node name="RewindLabel" type="Label" parent="."]
+offset_left = 94.0
+offset_top = 81.0
+offset_right = 204.0
+offset_bottom = 127.0
+text = "REWIND!"
+label_settings = SubResource("LabelSettings_h0pbs")
+
+[node name="TextureRect" type="TextureRect" parent="RewindLabel"]
+modulate = Color(0, 0.50003, 0.50003, 0.184314)
+layout_mode = 0
+offset_left = -209.0
+offset_top = -127.0
+offset_right = 1946.0
+offset_bottom = 1058.0
+texture = ExtResource("2_w46tp")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+modulate = Color(0, 1, 0, 1)
+offset_left = 24.0
+offset_top = 39.0
+offset_right = 302.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+value = 81.96
+
+[node name="GameOverScreen" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_left = 976.0
+offset_top = 506.0
+offset_right = 1040.0
+offset_bottom = 570.0
+
+[node name="TextureRect" type="TextureRect" parent="GameOverScreen"]
+modulate = Color(1, 0.00392157, 0.00392157, 0.184314)
+layout_mode = 2
+offset_left = -1055.0
+offset_top = -535.0
+offset_right = -974.0
+offset_bottom = -465.0
+scale = Vector2(25.6554, 17.8372)
+texture = ExtResource("2_w46tp")
+
+[node name="Label" type="Label" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = -331.0
+offset_top = -309.0
+offset_right = 302.0
+offset_bottom = -157.0
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_w46tp")
+
+[node name="RestartButton" type="Button" parent="GameOverScreen"]
+layout_mode = 0
+offset_left = -192.0
+offset_top = -73.0
+offset_right = 187.0
+offset_bottom = 103.0
+theme = SubResource("Theme_w46tp")
+action_mode = 0
+text = "Restart"
+
+[connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]

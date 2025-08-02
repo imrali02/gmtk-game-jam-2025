@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://hmcvnsgko6e3"]
+
+[node name="Trees" type="AnimatableBody2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

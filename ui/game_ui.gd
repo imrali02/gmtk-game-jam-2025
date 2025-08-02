@@ -1,43 +1,39 @@
 extends CanvasLayer
 
-var score = 0
+@export var health_bar: ProgressBar
+@export var rewind_bar: ProgressBar
+@export var rewind_label: Label
 
 func _ready():
-	$RewindLabel.visible = false
+	rewind_label.visible = false
 	$GameOverScreen.visible = false
 	
 	add_to_group("rewindable")
 	add_to_group("game_over")
-	
-	update_score_display()
-	update_health_bar()
 
-func _on_collectible_collected():
-	# Increase score
-	score += 1
-	
-	# Update the score display
-	update_score_display()
+	update_ui()
 
 func _process(delta: float) -> void:
-	update_health_bar()
+	update_ui()
 	
-func update_health_bar() -> void:
+func update_ui() -> void:
 	# May need to update with better UI
-	$HealthBar.value = Global.player_health
-
-func update_score_display():
-	# Update the score label
-	$ScoreLabel.text = "Score: " + str(score)
+	health_bar.value = Global.player_health
+	rewind_bar.value = Global.player_rewind_stamina
+	
+	if rewind_bar.value == Global.MAX_REWIND_STAMINA:
+		rewind_bar.modulate.a = 1.0
+	else:
+		rewind_bar.modulate.a = 0.3
 	
 func rewind() -> void:
-	$RewindLabel.visible = true
+	rewind_label.visible = true
 
 func resume() -> void:
-	$RewindLabel.visible = false
+	rewind_label.visible = false
 	
 func game_over() -> void:
-	update_health_bar()
+	update_ui()
 	$GameOverScreen.visible = true
 
 func _on_restart_button_pressed():

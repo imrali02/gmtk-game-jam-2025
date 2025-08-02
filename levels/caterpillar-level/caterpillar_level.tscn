@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bei6mxeq1nvkn"]
 
 [ext_resource type="Script" uid="uid://bqdp57w1ke2eb" path="res://levels/caterpillar-level/caterpillar_level_logic.gd" id="1_q0d72"]
-[ext_resource type="PackedScene" uid="uid://cdwgrh4m1l3bo" path="res://ui/game_ui.tscn" id="2_vhlxl"]
+[ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_vhlxl"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_xit5g"]
 [ext_resource type="PackedScene" uid="uid://ckwbulqebdpw3" path="res://entities/npc/caterpillar/caterpillar.tscn" id="4_w1uiy"]
 
@@ -52,13 +52,8 @@ player = NodePath("../Player")
 [node name="Player" parent="." instance=ExtResource("3_xit5g")]
 position = Vector2(511, 275)
 
-[node name="Rewinder" parent="Player" index="4"]
-position = Vector2(-11, 16)
-
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
-
-[editable path="Player"]

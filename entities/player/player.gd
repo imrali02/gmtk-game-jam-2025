@@ -15,13 +15,16 @@ func _ready():
 	add_to_group("player")
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("rewind"):
+	if Input.is_action_just_pressed("rewind") and Global.can_rewind():
 		get_tree().call_group("rewindable", "rewind")
 	if Input.is_action_just_released("rewind"):
 		get_tree().call_group("rewindable", "resume")
 		
 	if $Rewinder.rewinding:
+		Global.update_player_rewind_stamina(-Global.MAX_REWIND_STAMINA * 2 * delta / $Rewinder.replay_duration)
 		return
+		
+	Global.update_player_rewind_stamina(Global.MAX_REWIND_STAMINA * 0.5 * delta / $Rewinder.replay_duration)
 		
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

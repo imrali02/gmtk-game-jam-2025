@@ -6,13 +6,16 @@
 
 [node name="Caterpillar" type="CharacterBody2D"]
 z_index = 1
+position = Vector2(226, 149)
 script = ExtResource("1_wqsgj")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-279, -269)
 polygon = PackedVector2Array(297, 467, 289, 385, 423, 358, 379, 310, 360, 82, 298, 66, 297, 243, 225, 254, 179, 303, 140, 337, 157, 371, 207, 380, 247, 382, 239, 473)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(281, 271)
+position = Vector2(2, 0)
 texture = ExtResource("1_lcj7i")
 
 [node name="Rewinder" parent="." instance=ExtResource("3_sglur")]
+position = Vector2(-226, -148)

@@ -10,6 +10,8 @@ radius = 50.0
 script = ExtResource("1_yjvnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+scale = Vector2(5, 5)
 texture = ExtResource("2_yf811")
 
 [node name="Area2D" type="Area2D" parent="."]

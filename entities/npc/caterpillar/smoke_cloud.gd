@@ -25,13 +25,6 @@ func _ready():
 	# Add to rewindable group
 	add_to_group("rewindable")
 	
-	# Create a sprite for the cloud
-	var sprite = Sprite2D.new()
-	sprite.scale = Vector2(1, 1)
-	# You'll need to set the texture to your smoke texture
-	# sprite.texture = preload("res://path/to/smoke_texture.png")
-	add_child(sprite)
-	
 	# Create a collision shape for detecting player
 	var area = Area2D.new()
 	var collision = CollisionShape2D.new()

@@ -40,10 +40,10 @@ func teleport_to_corner():
 	# Get the corners of the map
 	var viewport_rect = get_viewport_rect().size
 	var corners = [
-		Vector2(50, 50),  # top left
-		Vector2(viewport_rect.x - 50, 50),  # top right
-		Vector2(50, viewport_rect.y - 50),  # bottom left
-		Vector2(viewport_rect.x - 50, viewport_rect.y - 50)  # bottom right
+		Vector2(150, 150),  # top left
+		Vector2(viewport_rect.x - 150, 150),  # top right
+		Vector2(150, viewport_rect.y - 150),  # bottom left
+		Vector2(viewport_rect.x - 150, viewport_rect.y - 150)  # bottom right
 	]
 	
 	# Choose a random corner of the map

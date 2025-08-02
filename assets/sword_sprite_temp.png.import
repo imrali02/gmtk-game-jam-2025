@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwo23ayknnl3u"
-path="res://.godot/imported/Left_Dash_3.PNG-9c0a345e61105f75502ab1313d39ae04.ctex"
+uid="uid://byy6352yb1te4"
+path="res://.godot/imported/sword_sprite_temp.png-6b4ec0f9cc77517b281b0310a8fdf1c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player-sprites/Left_Dash_3.PNG"
-dest_files=["res://.godot/imported/Left_Dash_3.PNG-9c0a345e61105f75502ab1313d39ae04.ctex"]
+source_file="res://assets/sword_sprite_temp.png"
+dest_files=["res://.godot/imported/sword_sprite_temp.png-6b4ec0f9cc77517b281b0310a8fdf1c7.ctex"]
 
 [params]
 

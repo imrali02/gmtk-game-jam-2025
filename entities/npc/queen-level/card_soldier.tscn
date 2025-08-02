@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://blw3veq6cnw8i"]
 
 [ext_resource type="Script" uid="uid://bc6b3mp45fnlm" path="res://entities/npc/queen-level/card_soldier.gd" id="1_qb6xw"]
-[ext_resource type="Texture2D" uid="uid://12nmyfe3c8od" path="res://assets/card_soldier_sprite.png" id="2_qb6xw"]
+[ext_resource type="Texture2D" uid="uid://dlxvhxwsnuvs2" path="res://assets/card_soldier_sprite_temp.png" id="2_mukq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mukq5"]
 size = Vector2(54, 101)
@@ -12,7 +12,7 @@ script = ExtResource("1_qb6xw")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 z_index = 1
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_qb6xw")
+texture = ExtResource("2_mukq5")
 
 [node name="Area2D" type="Area2D" parent="."]
 

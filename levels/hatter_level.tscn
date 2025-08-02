@@ -23,10 +23,10 @@ script = ExtResource("1_yx4tc")
 z_index = -1
 
 [node name="Floor" type="ColorRect" parent="World"]
-offset_left = 209.0
-offset_top = 181.0
-offset_right = 1741.0
-offset_bottom = 937.0
+offset_left = 402.0
+offset_top = 311.0
+offset_right = 1547.0
+offset_bottom = 842.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 color = Color(0.2, 0.3, 0.2, 1)
@@ -38,27 +38,27 @@ collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_748nt")
 
 [node name="WallTop" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(974, 180)
+position = Vector2(988, 315)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallBottom" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(973, 942)
+position = Vector2(992, 852)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallLeft" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(209, 565)
+position = Vector2(396, 563)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_yx4tc")
 
 [node name="WallRight" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(1739.5, 559)
+position = Vector2(1549, 538)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_loe4y")
 
 [node name="Player" parent="." instance=ExtResource("3_vbcyo")]
-position = Vector2(511, 275)
+position = Vector2(978, 569)
 
 [node name="Hatter" parent="." instance=ExtResource("4_yx4tc")]
-position = Vector2(962, 43)
+position = Vector2(971, 174)
 
 [node name="UI" parent="." instance=ExtResource("2_hvauw")]

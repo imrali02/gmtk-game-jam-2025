@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwo23ayknnl3u"
-path="res://.godot/imported/Left_Dash_3.PNG-9c0a345e61105f75502ab1313d39ae04.ctex"
+uid="uid://dxw8ib34xh05h"
+path="res://.godot/imported/queen_sprite_temp.png-819bf88d975bfce1f7fe4d1f26fea115.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player-sprites/Left_Dash_3.PNG"
-dest_files=["res://.godot/imported/Left_Dash_3.PNG-9c0a345e61105f75502ab1313d39ae04.ctex"]
+source_file="res://assets/queen_sprite_temp.png"
+dest_files=["res://.godot/imported/queen_sprite_temp.png-819bf88d975bfce1f7fe4d1f26fea115.ctex"]
 
 [params]
 

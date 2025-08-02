@@ -3,6 +3,12 @@ extends Node
 const MAX_HEALTH: float = 100.0
 const MAX_REWIND_STAMINA: float = 100
 
+const LOBBY_SCENE: String = "res://levels/lobby.tscn"
+const CHESIRE_SCENE: String = "res://levels/chesire-level/chesire_level.tscn"
+const QUEEN_SCENE: String = "res://levels/queen-level/queen_level.tscn"
+const HATTER_SCENE: String = "res://levels/hatter_level.tscn"
+const CATERPILLER_SCENE: String = "res://levels/caterpillar-level/caterpillar_level.tscn"
+
 var player_health: float = MAX_HEALTH
 var player_rewind_stamina: float = 0
 
@@ -31,8 +37,11 @@ func update_boss_health(delta: float) -> void:
 	boss_health = clampf(boss_health + delta, 0.0, max_boss_health)
 
 func restart() -> void:
-	player_health = MAX_HEALTH
-	player_rewind_stamina = 0
+	reset_values()
 	
 	get_tree().paused = false
 	get_tree().reload_current_scene()
+
+func reset_values() -> void:
+	player_health = MAX_HEALTH
+	player_rewind_stamina = 0

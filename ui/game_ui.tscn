@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ufflwksi0lay"]
+[gd_scene load_steps=8 format=3 uid="uid://ufflwksi0lay"]
 
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
 [ext_resource type="Texture2D" uid="uid://b8ar58qt7y7hk" path="res://assets/queen_sprite.png" id="2_w46tp"]
+[ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="3_7hrjk"]
+[ext_resource type="Script" uid="uid://c7gklf2wr7dg4" path="res://ui/pause_menu.gd" id="3_pylni"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
 font_color = Color(1, 0, 0, 1)
@@ -13,6 +15,7 @@ font_size = 111
 default_font_size = 55
 
 [node name="UI" type="CanvasLayer" node_paths=PackedStringArray("player_health_bar", "rewind_bar", "rewind_label", "boss_label", "boss_health_bar")]
+process_mode = 3
 script = ExtResource("1_dcmab")
 player_health_bar = NodePath("VBoxContainer2/HealthBar")
 rewind_bar = NodePath("VBoxContainer2/RewindBar")
@@ -37,12 +40,12 @@ layout_mode = 2
 value = 76.0
 
 [node name="RewindLabel" type="Label" parent="VBoxContainer2"]
+visible = false
 layout_mode = 2
 text = "REWIND!"
 label_settings = SubResource("LabelSettings_h0pbs")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/RewindLabel"]
-visible = false
 modulate = Color(0, 0.50003, 0.50003, 0.184314)
 layout_mode = 0
 offset_left = -209.0
@@ -73,6 +76,59 @@ horizontal_alignment = 1
 modulate = Color(1, 0.0770396, 0.0483967, 1)
 layout_mode = 2
 value = 77.24
+
+[node name="PauseMenu" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_pylni")
+
+[node name="PanelContainer" type="PanelContainer" parent="PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -423.0
+offset_top = -90.0
+offset_right = 423.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/PanelContainer"]
+layout_mode = 2
+
+[node name="PauseLabel" type="Label" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 131
+text = "     PAUSED     "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="PauseMenu/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 134.255)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="LobbyButton" type="Button" parent="PauseMenu/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit to Lobby"
 
 [node name="GameOverScreen" type="Control" parent="."]
 process_mode = 3
@@ -113,4 +169,9 @@ theme = SubResource("Theme_w46tp")
 action_mode = 0
 text = "Restart"
 
+[node name="FaderUi" parent="." instance=ExtResource("3_7hrjk")]
+visible = false
+
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/LobbyButton" to="PauseMenu" method="_on_lobby_button_pressed"]
 [connection signal="pressed" from="GameOverScreen/RestartButton" to="." method="_on_restart_button_pressed"]

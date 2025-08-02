@@ -19,7 +19,7 @@ _data = {
 [node name="Chesire Cat" type="CharacterBody2D"]
 script = ExtResource("1_ghoej")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-149, 141, 12, 141, 60, 107, 89, 96, 134, 65, 151, 65, 149, 34, 98, 36, 60, 42, 8, 19, -20, -9, -6, -35, -46, -38, -89, -20, -122, 4, -131, 0, -113, -33, -36, -51, -2, -81, -10, -114, -48, -137, -64, -117, -32, -93, -57, -67, -145, -39)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

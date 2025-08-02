@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2nj0af61h0l2"]
 
-[ext_resource type="Texture2D" uid="uid://dy380xn75uunb" path="res://assets/hatter_sprite.png" id="1_4yl2p"]
+[ext_resource type="Texture2D" uid="uid://dy380xn75uunb" path="res://assets/hatter_sprite_temp.png" id="1_4yl2p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkf1q"]
 size = Vector2(279, 292)

@@ -6,6 +6,8 @@ var acceleration: float = 10.0
 var friction: float = 8.0
 var direction: Vector2 = Vector2.ZERO
 
+var animations
+
 var dash_speed: float = 1200.0
 var is_dashing: bool = false
 var can_dash: bool = true
@@ -13,6 +15,7 @@ var dash_direction: Vector2 = Vector2.ZERO
 
 func _ready():
 	add_to_group("player")
+	animations = $AnimatedSprite2D
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("rewind") and Global.can_rewind():
@@ -25,7 +28,19 @@ func _process(delta: float) -> void:
 		return
 		
 	Global.update_player_rewind_stamina(Global.MAX_REWIND_STAMINA * 0.5 * delta / $Rewinder.replay_duration)
+	
+	if Input.is_action_pressed("ui_right"):
+		animations.play("walk_right")
 		
+	if Input.is_action_pressed("ui_left"):
+		animations.play("walk_left")
+		
+	if Input.is_action_pressed("ui_up"):
+		animations.play("walk_backwards")
+		
+	if Input.is_action_pressed("ui_down"):
+		animations.play("walk_forwards")
+	
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	direction = direction.normalized()
@@ -39,6 +54,11 @@ func _process(delta: float) -> void:
 		is_dashing = true
 		can_dash = false
 		$DashCooldownTimer.start()
+		if Input.is_action_pressed("ui_right"):
+			animations.play("dash_right")
+		
+		if Input.is_action_pressed("ui_left"):
+			animations.play("dash_left")
 		velocity = lerp(velocity, direction * dash_speed, (dash_speed / 4) * delta)
 
 func _physics_process(delta: float) -> void:

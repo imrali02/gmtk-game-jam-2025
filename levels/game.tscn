@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://p3ov5jl3bpvr"]
+[gd_scene load_steps=8 format=3 uid="uid://ktc7q625w7jt"]
 
 [ext_resource type="Script" uid="uid://ds6yvw356qnls" path="res://levels/game.gd" id="1_vhr6a"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="1_yvnxr"]
 [ext_resource type="PackedScene" uid="uid://dft4sqilc74ab" path="res://entities/npc/enemy.tscn" id="2_748nt"]
-[ext_resource type="PackedScene" uid="uid://cdwgrh4m1l3bo" path="res://ui/game_ui.tscn" id="2_vhr6a"]
+[ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_vhr6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_od3m6"]
 size = Vector2(96, 20)

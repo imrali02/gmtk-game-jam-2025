@@ -68,6 +68,7 @@ func _physics_process(delta):
 				state = RETURN
 				for card in cards:
 					card.queue_free()
+				cards.clear()
 		RETURN:
 			move(START_POS, delta)
 			if (self.position - START_POS).length() <= 10:
@@ -85,7 +86,6 @@ func move(target, delta):
 func launch_attack():
 	var attack = rng.randi() % 4
 	print(attack)
-	attack = 3
 	if state == STAY:
 		if attack == 0:
 			# Guillotine attack

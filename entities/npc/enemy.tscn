@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dft4sqilc74ab"]
+[gd_scene load_steps=5 format=3 uid="uid://dft4sqilc74ab"]
 
 [ext_resource type="Script" uid="uid://cb42pihyr345n" path="res://entities/npc/enemy.gd" id="1_74j18"]
 [ext_resource type="Texture2D" uid="uid://btvkgv86ajhwq" path="res://assets/enemy_sprite.png" id="1_f1fcu"]
+[ext_resource type="PackedScene" uid="uid://cskc2d5phyl7d" path="res://entities/rewinder.tscn" id="3_etp4p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1fcu"]
 size = Vector2(54.5, 59)
@@ -19,3 +20,5 @@ shape = SubResource("RectangleShape2D_f1fcu")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="Rewinder" parent="." instance=ExtResource("3_etp4p")]

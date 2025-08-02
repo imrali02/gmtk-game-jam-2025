@@ -30,6 +30,8 @@ func _physics_process(delta):
 			move(player.global_position, delta)
 			print("HIT")
 			#Slash ANIM
+			
+	$Rewinder.handle_rewind()
 
 func move(target, delta):
 	var direction = (target - global_position).normalized() 

@@ -1,19 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bei6mxeq1nvkn"]
+[gd_scene load_steps=7 format=3 uid="uid://bndcwsq0j65ma"]
 
-[ext_resource type="Script" uid="uid://bqdp57w1ke2eb" path="res://levels/caterpillar-level/caterpillar_level_logic.gd" id="1_q0d72"]
-[ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_vhlxl"]
-[ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_xit5g"]
-[ext_resource type="PackedScene" uid="uid://ckwbulqebdpw3" path="res://entities/npc/caterpillar/caterpillar.tscn" id="4_w1uiy"]
+[ext_resource type="Script" uid="uid://v8r0evej8cwi" path="res://levels/chesire-level/chesire_level_logic.gd" id="1_wyxhi"]
+[ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_307c1"]
+[ext_resource type="PackedScene" uid="uid://sbiwob6r77cp" path="res://entities/npc/chesire-cat/chesire-cat.tscn" id="3_mnmxr"]
+[ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="4_isv8e"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqvnj"]
 size = Vector2(1864, 43.0033)
 
-[node name="Caterpillar Level" type="Node2D"]
-script = ExtResource("1_q0d72")
+[node name="Chesire Level" type="Node2D"]
+script = ExtResource("1_wyxhi")
 
-[node name="UI" parent="." instance=ExtResource("2_vhlxl")]
+[node name="UI" parent="." instance=ExtResource("2_307c1")]
 
 [node name="World" type="Node2D" parent="."]
 z_index = -1
@@ -21,7 +21,7 @@ z_index = -1
 [node name="Floor" type="ColorRect" parent="World"]
 offset_right = 1914.0
 offset_bottom = 1076.0
-color = Color(0.270437, 0.23761, 0.423943, 1)
+color = Color(0.2, 0.3, 0.2, 1)
 
 [node name="Walls" type="StaticBody2D" parent="World"]
 collision_layer = 3
@@ -45,11 +45,10 @@ position = Vector2(1902, 358)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
-[node name="Caterpillar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_w1uiy")]
-position = Vector2(1727, 828)
-player = NodePath("../Player")
+[node name="Chesire Cat" parent="." instance=ExtResource("3_mnmxr")]
+position = Vector2(955, 245)
 
-[node name="Player" parent="." instance=ExtResource("3_xit5g")]
+[node name="Player" parent="." instance=ExtResource("4_isv8e")]
 position = Vector2(511, 275)
 
 [node name="AttackTimer" type="Timer" parent="."]

@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://sbiwob6r77cp"]
+
+[ext_resource type="Script" uid="uid://eur81cofudkw" path="res://entities/npc/chesire-cat/chesire-cat.gd" id="1_ghoej"]
+[ext_resource type="Texture2D" uid="uid://du5vyglsnjya4" path="res://assets/chesire_cat_temp.png" id="2_3t832"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3t832"]
+
+[sub_resource type="Animation" id="Animation_3kbga"]
+resource_name = "head_throw"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_omn5r"]
+_data = {
+&"head_throw": SubResource("Animation_3kbga")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eqspu"]
+
+[node name="Chesire Cat" type="CharacterBody2D"]
+script = ExtResource("1_ghoej")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-149, 141, 12, 141, 60, 107, 89, 96, 134, 65, 151, 65, 149, 34, 98, 36, 60, 42, 8, 19, -20, -9, -6, -35, -46, -38, -89, -20, -122, 4, -131, 0, -113, -33, -36, -51, -2, -81, -10, -114, -48, -137, -64, -117, -32, -93, -57, -67, -145, -39)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.328889, 0.328889)
+texture = ExtResource("2_3t832")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3t832")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
+root_node = NodePath("../AnimationTree")
+libraries = {
+&"": SubResource("AnimationLibrary_omn5r")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimatedSprite2D"]
+root_node = NodePath(".")
+tree_root = SubResource("AnimationNodeStateMachine_eqspu")
+anim_player = NodePath("../AnimationPlayer")

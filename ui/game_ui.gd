@@ -1,8 +1,11 @@
 extends CanvasLayer
 
-@export var health_bar: ProgressBar
+@export var player_health_bar: ProgressBar
 @export var rewind_bar: ProgressBar
 @export var rewind_label: Label
+
+@export var boss_label: Label
+@export var boss_health_bar: ProgressBar
 
 func _ready():
 	rewind_label.visible = false
@@ -18,8 +21,11 @@ func _process(delta: float) -> void:
 	
 func update_ui() -> void:
 	# May need to update with better UI
-	health_bar.value = Global.player_health
+	player_health_bar.value = Global.player_health
 	rewind_bar.value = Global.player_rewind_stamina
+	
+	boss_label.text = Global.boss_name
+	boss_health_bar.value = Global.boss_health
 	
 	if rewind_bar.value == Global.MAX_REWIND_STAMINA:
 		rewind_bar.modulate.a = 1.0

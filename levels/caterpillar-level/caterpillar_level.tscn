@@ -11,6 +11,7 @@
 size = Vector2(1864, 43.0033)
 
 [node name="Caterpillar Level" type="Node2D"]
+position = Vector2(-216, -148)
 script = ExtResource("1_q0d72")
 
 [node name="UI" parent="." instance=ExtResource("2_vhlxl")]
@@ -24,6 +25,7 @@ offset_top = 150.0
 offset_right = 1702.0
 offset_bottom = 975.0
 color = Color(0.270437, 0.23761, 0.423943, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="Walls" type="StaticBody2D" parent="World"]
 position = Vector2(7, 0)

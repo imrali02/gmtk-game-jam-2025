@@ -9,6 +9,7 @@ var randomnum
 
 var head_scene
 var sword_scene
+var soldier_scene
 
 enum {
 	ROAM,
@@ -22,8 +23,9 @@ func _ready():
 	rng.randomize()
 	randomnum = rng.randf()
 	
-	head_scene = preload("res://entities/npc/homing_head.tscn")
-	sword_scene = preload("res://entities/npc/sword.tscn")
+	head_scene = preload("res://entities/npc/queen-level/homing_head.tscn")
+	sword_scene = preload("res://entities/npc/queen-level/sword.tscn")
+	soldier_scene = preload("res://entities/npc/queen-level/card_soldier.tscn")
 
 func _physics_process(delta):
 	match state:
@@ -50,18 +52,28 @@ func get_circle_position(random):
 	return Vector2(x, y)
 
 func launch_attack():
-	# var attack = floor(rng.randf() * 4.0)
-	var attack = 2.0
+	var attack = rng.randi() % 4
 	print(attack)
-	if attack == 0.0:
+	if attack == 0:
 		# Guillotine attack
 		var head = head_scene.instantiate()
 		head.player = self.player
 		add_child(head)
-	elif attack == 1.0:
+	elif attack == 1:
 		# Marching cards
+		var missing = rng.randi() % 4
+		var direction_select = rng.randf()
+		for i in 4:
+			if i != missing:
+				var soldier = soldier_scene.instantiate()
+				if direction_select < 0.5:
+					soldier.SPEED = -500
+					soldier.position += Vector2(450, 50 + 100 * (i + 1))
+				else:
+					soldier.position += Vector2(-450, 50 + 100 * (i + 1))
+				add_child(soldier)
 		pass
-	elif attack == 2.0:
+	elif attack == 2:
 		# Sword
 		var sword = sword_scene.instantiate()
 		add_child(sword)

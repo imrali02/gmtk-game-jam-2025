@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dxb0o8nv1yhln" path="res://levels/queen-level/queen_level_logic.gd" id="1_n4na0"]
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="2_50vpl"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_pkmjv"]
-[ext_resource type="PackedScene" uid="uid://bhovod2txufxb" path="res://entities/npc/queen.tscn" id="4_50vpl"]
+[ext_resource type="PackedScene" uid="uid://bhovod2txufxb" path="res://entities/npc/queen-level/queen.tscn" id="4_50vpl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
 font_color = Color(1, 0, 0, 1)
@@ -70,7 +70,7 @@ shape = SubResource("RectangleShape2D_qqvnj")
 position = Vector2(511, 275)
 
 [node name="AttackTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 6.0
 autostart = true
 
 [node name="Queen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_50vpl")]

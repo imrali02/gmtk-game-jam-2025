@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ilji5ax7umw3"]
+
+[ext_resource type="Script" uid="uid://dlebnsppiswxn" path="res://entities/npc/caterpillar/puff_pipe.gd" id="1_yjvnk"]
+[ext_resource type="Texture2D" uid="uid://cqtuihg1jyqeg" path="res://assets/smoke_cloud_letters.png" id="2_3xx24"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xx24"]
+atlas = ExtResource("2_3xx24")
+region = Rect2(569, 59.5, 94, 115)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 20.0
+
+[node name="PuffPipe" type="Node2D"]
+script = ExtResource("1_yjvnk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = SubResource("AtlasTexture_3xx24")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1")
+
+[node name="Rewinder" type="Node" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]

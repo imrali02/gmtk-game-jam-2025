@@ -1,8 +1,14 @@
-[gd_scene load_steps=39 format=3 uid="uid://djbilbq57aoeu"]
+[gd_scene load_steps=45 format=3 uid="uid://djbilbq57aoeu"]
 
 [ext_resource type="Script" uid="uid://desnhp1crktjt" path="res://entities/player/player.gd" id="1_tio2u"]
 [ext_resource type="Texture2D" uid="uid://d1poylj1a7dlp" path="res://assets/sprite-sheets/rabbit_sprite_sheet.png" id="2_sglur"]
 [ext_resource type="PackedScene" uid="uid://cskc2d5phyl7d" path="res://entities/rewinder.tscn" id="3_sglur"]
+[ext_resource type="Texture2D" uid="uid://ci0l2ocv4esbc" path="res://assets/player-sprites/Forward_Dash_4.PNG" id="4_7thud"]
+[ext_resource type="Texture2D" uid="uid://gqib18j5weyr" path="res://assets/player-sprites/Left_5.PNG" id="5_a1qjk"]
+[ext_resource type="Texture2D" uid="uid://b7oin06hbyipf" path="res://assets/player-sprites/Left_6.PNG" id="6_j3ovn"]
+[ext_resource type="Texture2D" uid="uid://isdcd41xblqf" path="res://assets/player-sprites/Right_5.png" id="7_afbqv"]
+[ext_resource type="Texture2D" uid="uid://x4tcg5pdxjn3" path="res://assets/player-sprites/Right_6.png" id="8_gx6sm"]
+[ext_resource type="Texture2D" uid="uid://bvfimsuobefm" path="res://assets/player-sprites/Backwards_Dash_1.PNG" id="9_yqrof"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
 atlas = ExtResource("2_sglur")
@@ -175,6 +181,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_7thud")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a1qjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j3ovn")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_afbqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gx6sm")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yqrof")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_j3ovn")
 }, {
 "duration": 1.0,
@@ -279,7 +323,9 @@ script = ExtResource("1_tio2u")
 position = Vector2(1, -2)
 scale = Vector2(0.166797, 0.166797)
 sprite_frames = SubResource("SpriteFrames_ttr27")
-animation = &"walk_left"
+animation = &"idle_down"
+autoplay = "idle_down"
+frame_progress = 0.0499679
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -4.5)

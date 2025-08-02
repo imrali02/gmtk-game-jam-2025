@@ -8,7 +8,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqvnj"]
-size = Vector2(1066, 20)
+size = Vector2(1272, 20)
 
 [node name="RewindGame" type="Node2D"]
 script = ExtResource("1_n4na0")
@@ -17,8 +17,8 @@ script = ExtResource("1_n4na0")
 z_index = -1
 
 [node name="Floor" type="ColorRect" parent="World"]
-offset_right = 1024.0
-offset_bottom = 600.0
+offset_right = 1250.0
+offset_bottom = 691.0
 color = Color(0.2, 0.3, 0.2, 1)
 
 [node name="Walls" type="StaticBody2D" parent="World"]
@@ -26,11 +26,11 @@ collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_748nt")
 
 [node name="WallTop" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(512, -10)
+position = Vector2(615, -10)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallBottom" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(512, 610)
+position = Vector2(608, 706)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallLeft" type="CollisionShape2D" parent="World/Walls"]
@@ -39,7 +39,7 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallRight" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(1034, 300)
+position = Vector2(1261, 301)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
@@ -51,7 +51,7 @@ wait_time = 6.0
 autostart = true
 
 [node name="Queen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_50vpl")]
-position = Vector2(517, 56)
+position = Vector2(742, 72)
 player = NodePath("../Player")
 
 [node name="UI" parent="." instance=ExtResource("4_pkmjv")]

@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var player: CharacterBody2D
 
 var SPEED = 200
-var CENTER_POS = Vector2(517, 286)
-var START_POS = Vector2(517, 56)
+var CENTER_POS = Vector2(742, 433)
+var START_POS = Vector2(742, 56)
 
 var shields_timer = 0.0
 var shields_timer_max = 5.0
@@ -49,7 +49,7 @@ func _physics_process(delta):
 				var heart_card = rng.randi() % 8
 				for i in 8:
 					var card = card_scene.instantiate()
-					var tf = Vector2(100, 0).rotated(i * 2 * PI / 8)
+					var tf = Vector2(150, 0).rotated(i * 2 * PI / 8)
 					card.position += tf
 					card.is_heart = (i == heart_card)
 					cards.append(card)
@@ -94,9 +94,9 @@ func launch_attack():
 			add_child(head)
 		elif attack == 1:
 			# Marching cards
-			var missing = rng.randi() % 4
+			var missing = rng.randi() % 7
 			var direction_select = rng.randf()
-			for i in 4:
+			for i in 7:
 				if i != missing:
 					var soldier = soldier_scene.instantiate()
 					if direction_select < 0.5:

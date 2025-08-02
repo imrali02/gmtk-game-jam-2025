@@ -51,7 +51,7 @@ wait_time = 6.0
 autostart = true
 
 [node name="Queen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_50vpl")]
-position = Vector2(742, 72)
+position = Vector2(616, 59)
 player = NodePath("../Player")
 
 [node name="UI" parent="." instance=ExtResource("4_pkmjv")]

@@ -45,4 +45,3 @@ func rewind() -> void:
 func resume() -> void:
 	rewinding = false
 	parent.get_node("CollisionShape2D").set_deferred("disabled", false)
-	parent.velocity = Vector2.ZERO

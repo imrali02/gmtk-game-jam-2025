@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://duag3d1xsf7jg"]
 
 [ext_resource type="Script" uid="uid://cu8dtcysbe531" path="res://entities/npc/queen-level/sword.gd" id="1_cbgut"]
-[ext_resource type="Texture2D" uid="uid://cepp4y4npxjhm" path="res://assets/sword_sprite.png" id="2_cbgut"]
+[ext_resource type="Texture2D" uid="uid://byy6352yb1te4" path="res://assets/sword_sprite_temp.png" id="2_1yw8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1yw8k"]
 size = Vector2(54, 587)
@@ -13,7 +13,7 @@ script = ExtResource("1_cbgut")
 z_index = 1
 position = Vector2(0, 289)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_cbgut")
+texture = ExtResource("2_1yw8k")
 
 [node name="Area2D" type="Area2D" parent="."]
 

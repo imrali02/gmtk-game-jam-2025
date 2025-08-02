@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://76r4mwgjt588"]
 
 [ext_resource type="Script" uid="uid://dst5xc15gku7" path="res://entities/npc/queen-level/homing_head.gd" id="1_wugvv"]
-[ext_resource type="Texture2D" uid="uid://bvs3g542wtysi" path="res://assets/head_sprite.png" id="2_wugvv"]
+[ext_resource type="Texture2D" uid="uid://bqiqfj52rlw10" path="res://assets/head_sprite_temp.png" id="2_u10si"]
 [ext_resource type="PackedScene" uid="uid://cskc2d5phyl7d" path="res://entities/rewinder.tscn" id="3_0s1sx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mbmf"]
@@ -16,7 +16,7 @@ script = ExtResource("1_wugvv")
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 z_index = 1
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("2_wugvv")
+texture = ExtResource("2_u10si")
 
 [node name="Area2D" type="Area2D" parent="."]
 

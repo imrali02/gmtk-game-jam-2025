@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6fkcwt0lrcq8"]
+[gd_scene load_steps=7 format=3 uid="uid://b6vnvaayye6v8"]
 
 [ext_resource type="Script" uid="uid://ds6yvw356qnls" path="res://levels/game.gd" id="1_yx4tc"]
 [ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_hvauw"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_vbcyo"]
+[ext_resource type="PackedScene" uid="uid://c2nj0af61h0l2" path="res://entities/npc/hatter.tscn" id="4_yx4tc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 
@@ -13,6 +14,7 @@ size = Vector2(1066, 20)
 script = ExtResource("1_yx4tc")
 
 [node name="UI" parent="." instance=ExtResource("2_hvauw")]
+visible = false
 
 [node name="World" type="Node2D" parent="."]
 z_index = -1
@@ -48,3 +50,6 @@ shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="Player" parent="." instance=ExtResource("3_vbcyo")]
 position = Vector2(511, 275)
+
+[node name="Hatter" parent="." instance=ExtResource("4_yx4tc")]
+position = Vector2(509, -157)

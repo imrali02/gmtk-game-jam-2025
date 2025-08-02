@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccridunffwu2v"]
+
+[ext_resource type="Script" uid="uid://cvrcskv3ieiel" path="res://entities/npc/queen-level/card.gd" id="1_7v0cp"]
+[ext_resource type="Texture2D" uid="uid://bwdxvsrc5df5f" path="res://assets/card_back.png" id="2_7v0cp"]
+[ext_resource type="PackedScene" uid="uid://dthfstsvm81el" path="res://entities/npc/queen-level/card_rewinder.tscn" id="3_n80gu"]
+
+[node name="Card" type="CharacterBody2D"]
+script = ExtResource("1_7v0cp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(1, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_7v0cp")
+
+[node name="CardRewinder" parent="." instance=ExtResource("3_n80gu")]

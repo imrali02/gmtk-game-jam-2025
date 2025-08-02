@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duag3d1xsf7jg"]
 
-[ext_resource type="Script" uid="uid://cu8dtcysbe531" path="res://entities/npc/sword.gd" id="1_cbgut"]
+[ext_resource type="Script" uid="uid://cu8dtcysbe531" path="res://entities/npc/queen-level/sword.gd" id="1_cbgut"]
 [ext_resource type="Texture2D" uid="uid://cepp4y4npxjhm" path="res://assets/sword_sprite.png" id="2_cbgut"]
 
 [node name="Sword" type="CharacterBody2D"]
@@ -8,6 +8,6 @@ script = ExtResource("1_cbgut")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(0, 144)
+position = Vector2(0, 289)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_cbgut")

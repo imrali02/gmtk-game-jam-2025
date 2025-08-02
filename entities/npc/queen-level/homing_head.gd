@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var player: CharacterBody2D
 
 var SPEED = 500
+var player_ref
 
 var randomnum
 
@@ -17,6 +18,10 @@ func _ready():
 	rng.randomize()
 	randomnum = rng.randf()
 	
+	# Find player reference
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player_ref = players[0]
 
 func _physics_process(delta):
 	match state:
@@ -44,3 +49,8 @@ func get_circle_position(random):
 
 func _on_timer_timeout():
 	self.queue_free()
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		player_ref.take_damage(10.0)
+		$Timer.timeout.emit()

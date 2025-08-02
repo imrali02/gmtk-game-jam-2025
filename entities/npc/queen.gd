@@ -51,9 +51,16 @@ func launch_attack():
 	var attack = floor(rng.randf() * 4.0)
 	print(attack)
 	if attack == 0.0:
+		# Guillotine attack
 		var head = head_scene.instantiate()
 		head.player = self.player
 		add_child(head)
+	elif attack == 1.0:
+		# Marching cards
+		pass
+	elif attack == 2.0:
+		# Sword
+		
+		pass
 	else:
 		pass
-		

@@ -22,6 +22,8 @@ func _physics_process(delta):
 	match state:
 		ROAM:
 			move(get_circle_position(randomnum), delta)
+	
+	$Rewinder.handle_rewind()
 
 func move(target, delta):
 	var direction = (target - global_position).normalized() 

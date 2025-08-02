@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://76r4mwgjt588"]
+
+[ext_resource type="Script" uid="uid://dst5xc15gku7" path="res://entities/npc/homing_head.gd" id="1_wugvv"]
+[ext_resource type="Texture2D" uid="uid://bvs3g542wtysi" path="res://assets/head_sprite.png" id="2_wugvv"]
+[ext_resource type="PackedScene" uid="uid://cskc2d5phyl7d" path="res://entities/rewinder.tscn" id="3_0s1sx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0s1sx"]
+radius = 51.4781
+
+[node name="HomingHead" type="CharacterBody2D"]
+script = ExtResource("1_wugvv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_wugvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0s1sx")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="Rewinder" parent="." instance=ExtResource("3_0s1sx")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

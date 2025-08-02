@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var player: CharacterBody2D
 
 var SPEED = 200
-var CENTER_POS = Vector2(742, 433)
-var START_POS = Vector2(742, 56)
+var CENTER_POS = Vector2(616, 339)
+var START_POS = Vector2(616, 59)
 
 var shields_timer = 0.0
 var shields_timer_max = 5.0
@@ -16,6 +16,7 @@ var head_scene
 var sword_scene
 var soldier_scene
 var card_scene
+var player_ref
 
 var cards = []
 
@@ -38,6 +39,10 @@ func _ready():
 	sword_scene = preload("res://entities/npc/queen-level/sword.tscn")
 	soldier_scene = preload("res://entities/npc/queen-level/card_soldier.tscn")
 	card_scene = preload("res://entities/npc/queen-level/card.tscn")
+	
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player_ref = players[0]
 
 func _physics_process(delta):
 	match state:
@@ -52,6 +57,7 @@ func _physics_process(delta):
 					var tf = Vector2(150, 0).rotated(i * 2 * PI / 8)
 					card.position += tf
 					card.is_heart = (i == heart_card)
+					card.get_node("CollisionShape2D").set_deferred("disabled", i == heart_card)
 					cards.append(card)
 					add_child(card)
 		SHIELDS_FACE_DOWN:
@@ -91,19 +97,20 @@ func launch_attack():
 			# Guillotine attack
 			var head = head_scene.instantiate()
 			head.player = self.player
+			head.position += Vector2(0, 100)
 			add_child(head)
 		elif attack == 1:
 			# Marching cards
-			var missing = rng.randi() % 7
+			var missing = rng.randi() % 5
 			var direction_select = rng.randf()
-			for i in 7:
+			for i in 5:
 				if i != missing:
 					var soldier = soldier_scene.instantiate()
 					if direction_select < 0.5:
 						soldier.SPEED = -500
-						soldier.position += Vector2(450, 50 + 100 * (i + 1))
+						soldier.position += Vector2(600, 50 + 100 * (i + 1))
 					else:
-						soldier.position += Vector2(-450, 50 + 100 * (i + 1))
+						soldier.position += Vector2(-600, 50 + 100 * (i + 1))
 					add_child(soldier)
 		elif attack == 2:
 			# Sword
@@ -111,3 +118,8 @@ func launch_attack():
 			add_child(sword)
 		else:
 			state = CENTER
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		if state == SHIELDS_FACE_UP:
+			Global.boss_health -= 20.0

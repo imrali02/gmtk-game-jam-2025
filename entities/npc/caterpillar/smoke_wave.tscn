@@ -1,14 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://xcwfwnyxag3g"]
+[gd_scene load_steps=3 format=3 uid="uid://xcwfwnyxag3g"]
 
 [ext_resource type="Script" uid="uid://off4ovb6rulv" path="res://entities/npc/caterpillar/smoke_wave.gd" id="1_vjdmr"]
-[ext_resource type="Texture2D" uid="uid://cqtuihg1jyqeg" path="res://assets/smoke_cloud_letters.png" id="2_priwo"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ll2go"]
-atlas = ExtResource("2_priwo")
-region = Rect2(565, 56.5, 105, 125)
+[ext_resource type="Texture2D" uid="uid://ukbhami0b7fo" path="res://assets/smoke_cloud.png" id="2_priwo"]
 
 [node name="SmokeWave" type="Node2D"]
 script = ExtResource("1_vjdmr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("AtlasTexture_ll2go")
+texture = ExtResource("2_priwo")

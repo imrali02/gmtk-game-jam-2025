@@ -110,7 +110,10 @@ func smoke_wave_attack():
 func create_smoke_wave(radius):
 	# Create a smoke cloud that expands outward
 	var smoke_wave = smoke_wave.instantiate()
-	smoke_wave.position = global_position
+	var viewport_rect = get_viewport_rect().size
+	var smoke_x = rng.randi_range(0, viewport_rect.x)
+	var smoke_y = rng.randi_range(0, viewport_rect.y)
+	smoke_wave.position = Vector2(smoke_x, smoke_y)
 	smoke_wave.scale = Vector2(0.5, 0.5)
 	smoke_wave.expanding = true
 	smoke_wave.max_radius = radius + 100

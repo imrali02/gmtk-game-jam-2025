@@ -19,34 +19,37 @@ script = ExtResource("1_q0d72")
 z_index = -1
 
 [node name="Floor" type="ColorRect" parent="World"]
-offset_right = 1914.0
-offset_bottom = 1076.0
+offset_left = 224.0
+offset_top = 150.0
+offset_right = 1702.0
+offset_bottom = 975.0
 color = Color(0.270437, 0.23761, 0.423943, 1)
 
 [node name="Walls" type="StaticBody2D" parent="World"]
+position = Vector2(7, 0)
 collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_748nt")
 
 [node name="WallTop" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(947, -6)
+position = Vector2(951, 127)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallBottom" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(939, 1069)
+position = Vector2(940, 960)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallLeft" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(-15, 325)
+position = Vector2(192, 343)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallRight" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(1902, 358)
+position = Vector2(1709, 369)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="Caterpillar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_w1uiy")]
-position = Vector2(1727, 828)
+position = Vector2(1511, 707)
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_xit5g")]

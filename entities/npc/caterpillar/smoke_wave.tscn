@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://xcwfwnyxag3g"]
+
+[ext_resource type="Script" uid="uid://off4ovb6rulv" path="res://entities/npc/caterpillar/smoke_wave.gd" id="1_vjdmr"]
+
+[node name="SmokeWave" type="Node2D"]
+script = ExtResource("1_vjdmr")

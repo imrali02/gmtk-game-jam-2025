@@ -38,12 +38,14 @@ func _ready():
 
 func teleport_to_corner():
 	# Get the corners of the map
-	var viewport_rect = get_viewport_rect().size
+	
+	var map_size = $"../World/Floor/ReferenceRect"
+	
 	var corners = [
-		Vector2(150, 150),  # top left
-		Vector2(viewport_rect.x - 150, 150),  # top right
-		Vector2(150, viewport_rect.y - 150),  # bottom left
-		Vector2(viewport_rect.x - 150, viewport_rect.y - 150)  # bottom right
+		Vector2(map_size.x + 450, map_size.y + 250),  # top left
+		Vector2(map_size.x - 450, map_size.y + 250),  # top right
+		Vector2(map_size.x + 450, map_size.y - 250),  # bottom left
+		Vector2(map_size.x - 450, map_size.y - 250)  # bottom right
 	]
 	
 	# Choose a random corner of the map

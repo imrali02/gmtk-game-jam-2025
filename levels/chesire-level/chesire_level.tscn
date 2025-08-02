@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bndcwsq0j65ma"]
+[gd_scene load_steps=8 format=3 uid="uid://bndcwsq0j65ma"]
 
 [ext_resource type="Script" uid="uid://v8r0evej8cwi" path="res://levels/chesire-level/chesire_level_logic.gd" id="1_wyxhi"]
 [ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_307c1"]
 [ext_resource type="PackedScene" uid="uid://sbiwob6r77cp" path="res://entities/npc/chesire-cat/chesire-cat.tscn" id="3_mnmxr"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="4_isv8e"]
+[ext_resource type="PackedScene" uid="uid://hmcvnsgko6e3" path="res://entities/npc/chesire-cat/trees.tscn" id="5_lfmxs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 
@@ -50,6 +51,12 @@ position = Vector2(955, 245)
 
 [node name="Player" parent="." instance=ExtResource("4_isv8e")]
 position = Vector2(511, 275)
+
+[node name="Trees2" parent="." instance=ExtResource("5_lfmxs")]
+position = Vector2(1579, 515)
+
+[node name="Trees" parent="." instance=ExtResource("5_lfmxs")]
+position = Vector2(252, 499)
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 3.0

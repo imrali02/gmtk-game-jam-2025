@@ -1,3 +1,35 @@
-[gd_scene format=3 uid="uid://51nemcyf51c5"]
+[gd_scene load_steps=5 format=3 uid="uid://51nemcyf51c5"]
+
+[ext_resource type="Script" uid="uid://c205vd2nyejwc" path="res://entities/npc/chesire-cat/cat-head.gd" id="1_yjvnk"]
+[ext_resource type="Texture2D" uid="uid://cm7s8elk8v5h1" path="res://assets/cat_head_temp.png" id="2_2ji5l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0j606"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2ji5l")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1"]
+radius = 30.0
 
 [node name="Cat-head" type="Node2D"]
+script = ExtResource("1_yjvnk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0j606")
+animation = &"new_animation"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_1")

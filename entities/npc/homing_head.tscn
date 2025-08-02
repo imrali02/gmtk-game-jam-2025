@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bvs3g542wtysi" path="res://assets/head_sprite.png" id="2_wugvv"]
 [ext_resource type="PackedScene" uid="uid://cskc2d5phyl7d" path="res://entities/rewinder.tscn" id="3_0s1sx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1fcu"]
-size = Vector2(54.5, 59)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0s1sx"]
+radius = 51.4781
 
 [node name="HomingHead" type="CharacterBody2D"]
 script = ExtResource("1_wugvv")
@@ -16,7 +16,7 @@ scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_wugvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_f1fcu")
+shape = SubResource("CircleShape2D_0s1sx")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

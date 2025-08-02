@@ -8,6 +8,7 @@ var rng
 var randomnum
 
 var head_scene
+var sword_scene
 
 enum {
 	ROAM,
@@ -22,6 +23,7 @@ func _ready():
 	randomnum = rng.randf()
 	
 	head_scene = preload("res://entities/npc/homing_head.tscn")
+	sword_scene = preload("res://entities/npc/sword.tscn")
 
 func _physics_process(delta):
 	match state:
@@ -48,7 +50,8 @@ func get_circle_position(random):
 	return Vector2(x, y)
 
 func launch_attack():
-	var attack = floor(rng.randf() * 4.0)
+	# var attack = floor(rng.randf() * 4.0)
+	var attack = 2.0
 	print(attack)
 	if attack == 0.0:
 		# Guillotine attack
@@ -60,7 +63,8 @@ func launch_attack():
 		pass
 	elif attack == 2.0:
 		# Sword
-		
+		var sword = sword_scene.instantiate()
+		add_child(sword)
 		pass
 	else:
 		pass

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://ufflwksi0lay"]
+[gd_scene load_steps=5 format=3 uid="uid://ufflwksi0lay"]
 
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
-[ext_resource type="Texture2D" uid="uid://b8ar58qt7y7hk" path="res://assets/queen_sprite.png" id="2_w46tp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
 font_color = Color(1, 0, 0, 1)
@@ -49,7 +48,6 @@ offset_left = -209.0
 offset_top = -127.0
 offset_right = 1946.0
 offset_bottom = 1058.0
-texture = ExtResource("2_w46tp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 7
@@ -92,7 +90,6 @@ offset_top = -535.0
 offset_right = -974.0
 offset_bottom = -465.0
 scale = Vector2(25.6554, 17.8372)
-texture = ExtResource("2_w46tp")
 
 [node name="Label" type="Label" parent="GameOverScreen"]
 layout_mode = 0

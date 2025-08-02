@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhovod2txufxb"]
 
 [ext_resource type="Script" uid="uid://dst3xdb4s37vx" path="res://entities/npc/queen-level/queen.gd" id="1_wmaki"]
-[ext_resource type="Texture2D" uid="uid://b8ar58qt7y7hk" path="res://assets/queen_sprite.png" id="2_cwjgv"]
+[ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_6n34y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1w0q"]
 size = Vector2(66, 66)
@@ -13,7 +13,7 @@ size = Vector2(73, 75)
 script = ExtResource("1_wmaki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_cwjgv")
+texture = ExtResource("2_6n34y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_x1w0q")

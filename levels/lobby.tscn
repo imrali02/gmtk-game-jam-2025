@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://brv7jh3ajwafs"]
+[gd_scene load_steps=8 format=3 uid="uid://brv7jh3ajwafs"]
 
 [ext_resource type="Script" uid="uid://c6m8503g4didr" path="res://levels/lobby.gd" id="1_doeiq"]
 [ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_63tst"]
 [ext_resource type="PackedScene" uid="uid://cn803c0xqyv1f" path="res://entities/door.tscn" id="2_n1gxf"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_3ohsu"]
+[ext_resource type="PackedScene" uid="uid://cpah0tbdc66u" path="res://entities/npc/alice.tscn" id="4_63tst"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 
@@ -56,11 +57,10 @@ position = Vector2(409, 513)
 [node name="CaterpillarDoor" parent="World/Doors" instance=ExtResource("2_n1gxf")]
 position = Vector2(1490, 513)
 
-[node name="HatterDoor" parent="World/Doors" instance=ExtResource("2_n1gxf")]
-z_index = 1
-position = Vector2(942, 826)
-
 [node name="Player" parent="." instance=ExtResource("3_3ohsu")]
 position = Vector2(945, 494)
+
+[node name="Alice" parent="." instance=ExtResource("4_63tst")]
+position = Vector2(1056, 494)
 
 [node name="UI" parent="." instance=ExtResource("2_63tst")]

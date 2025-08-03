@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://blg70t1ibxo6v"]
 
 [ext_resource type="Script" uid="uid://boq8icanrp70l" path="res://ui/victory_ui.gd" id="1_r681l"]
-[ext_resource type="Texture2D" uid="uid://bulxevg1gopt4" path="res://assets/Main_Menu.PNG" id="2_0dqu0"]
+[ext_resource type="Texture2D" uid="uid://bjecyodc86osj" path="res://assets/Main_Menu.PNG" id="2_0dqu0"]
 [ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="2_xma0c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_damat"]

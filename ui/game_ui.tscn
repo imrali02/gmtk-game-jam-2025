@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ufflwksi0lay"]
+[gd_scene load_steps=9 format=3 uid="uid://ufflwksi0lay"]
 
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
 [ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_w46tp"]
-[ext_resource type="Script" path="res://ui/dialogue_area.gd" id="3_3vkek"]
+[ext_resource type="Script" uid="uid://qbinckmjuve3" path="res://ui/dialogue_area.gd" id="3_3vkek"]
 [ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="3_7hrjk"]
-[ext_resource type="Script" path="res://ui/pause_menu.gd" id="3_pylni"]
+[ext_resource type="Script" uid="uid://c7gklf2wr7dg4" path="res://ui/pause_menu.gd" id="3_pylni"]
 [ext_resource type="Script" uid="uid://dkfi42f0vupys" path="res://ui/dev_console.gd" id="6_xh48a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
@@ -12,24 +12,6 @@ font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_w46tp"]
 font_size = 111
-
-[sub_resource type="FontFile" id="FontFile_2uxy6"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-
-[sub_resource type="Theme" id="Theme_hgyfx"]
-default_font = SubResource("FontFile_2uxy6")
 
 [node name="UI" type="CanvasLayer" node_paths=PackedStringArray("player_health_bar", "rewind_bar", "rewind_label", "boss_label", "boss_health_bar")]
 process_mode = 3
@@ -49,17 +31,20 @@ offset_bottom = 110.0
 [node name="HealthBar" type="ProgressBar" parent="VBoxContainer2"]
 modulate = Color(0, 1, 0, 1)
 layout_mode = 2
+size_flags_vertical = 3
 value = 81.96
+show_percentage = false
 
 [node name="RewindBar" type="ProgressBar" parent="VBoxContainer2"]
 modulate = Color(0, 0.990519, 0.716612, 1)
 layout_mode = 2
+size_flags_vertical = 3
 value = 76.0
+show_percentage = false
 
 [node name="RewindLabel" type="Label" parent="VBoxContainer2"]
 visible = false
 layout_mode = 2
-text = "REWIND!"
 label_settings = SubResource("LabelSettings_h0pbs")
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer2/RewindLabel"]
@@ -78,7 +63,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -414.0
-offset_top = -108.0
+offset_top = -122.0
 offset_right = 415.0
 offset_bottom = -54.0
 grow_horizontal = 2
@@ -93,7 +78,9 @@ horizontal_alignment = 1
 [node name="BossHealthBar" type="ProgressBar" parent="VBoxContainer"]
 modulate = Color(1, 0.0770396, 0.0483967, 1)
 layout_mode = 2
+size_flags_vertical = 3
 value = 77.24
+show_percentage = false
 
 [node name="DialogueArea" type="Control" parent="."]
 visible = false
@@ -235,7 +222,6 @@ offset_top = -415.0
 offset_right = 329.0
 offset_bottom = -4.0
 grow_vertical = 2
-theme = SubResource("Theme_hgyfx")
 script = ExtResource("6_xh48a")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="DevConsole"]

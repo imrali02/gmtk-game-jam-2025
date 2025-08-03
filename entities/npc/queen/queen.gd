@@ -103,16 +103,16 @@ func launch_attack():
 		elif attack == 1:
 			# Marching cards
 			sprite.play("conjure")
-			var missing = rng.randi() % 5
+			var missing = rng.randi() % 3
 			var direction_select = rng.randf()
-			for i in 5:
+			for i in 3:
 				if i != missing:
 					var soldier = soldier_scene.instantiate()
 					if direction_select < 0.5:
 						soldier.SPEED = -500
-						soldier.position += Vector2(600, 50 + 100 * (i + 1))
+						soldier.position += Vector2(600, 140 * (i + 1))
 					else:
-						soldier.position += Vector2(-600, 50 + 100 * (i + 1))
+						soldier.position += Vector2(-600, 140 * (i + 1))
 					add_child(soldier)
 		elif attack == 2:
 			# Sword

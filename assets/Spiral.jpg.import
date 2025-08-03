@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b74r2tfq3cjag"
-path="res://.godot/imported/Thumbnail.PNG-c6f94ccf7495de0d5346e28558ebea53.ctex"
+uid="uid://b4trnb48mel0h"
+path="res://.godot/imported/Spiral.jpg-87e699781c200603a7dc7899403c899a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Thumbnail.PNG"
-dest_files=["res://.godot/imported/Thumbnail.PNG-c6f94ccf7495de0d5346e28558ebea53.ctex"]
+source_file="res://assets/Spiral.jpg"
+dest_files=["res://.godot/imported/Spiral.jpg-87e699781c200603a7dc7899403c899a.ctex"]
 
 [params]
 

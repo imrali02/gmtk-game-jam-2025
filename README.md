@@ -10,6 +10,8 @@ https://www.dafont.com/cotton-cloud.font
 https://pixabay.com/sound-effects/mechanical-stopwatch-ticking-30-seconds-364932/
 https://opengameart.org/content/sword-0
 https://www.kenney.nl/assets/playing-cards-pack
+https://opengameart.org/content/dungeon-crawl-32x32-tiles
+https://opengameart.org/content/castle-door
 
 sounds:
 https://opengameart.org/content/battle-theme-0

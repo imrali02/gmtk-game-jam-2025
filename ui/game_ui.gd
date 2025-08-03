@@ -9,7 +9,7 @@ extends CanvasLayer
 
 func _ready():
 	rewind_label.visible = false
-	$GameOverScreen.visible = false
+	$DeathScreen.visible = false
 	$PauseMenu.visible = false
 	
 	add_to_group("rewindable")
@@ -44,7 +44,9 @@ func resume() -> void:
 	
 func game_over() -> void:
 	update_ui()
-	$GameOverScreen.visible = true
+	$DeathScreen.visible = true
+	await get_tree().create_timer(2).timeout
+	get_tree().call_group("scene_changer", "fade_out_and_change_scene", Global.LOBBY_SCENE)
 	
 func disable_boss_ui() -> void:
 	boss_health_bar.visible = false
@@ -53,6 +55,3 @@ func disable_boss_ui() -> void:
 func enable_boss_ui() -> void:
 	boss_health_bar.visible = true
 	boss_label .visible = true
-
-func _on_restart_button_pressed():
-	Global.restart()

@@ -1,6 +1,8 @@
 extends Node2D
 
 func _ready():
+	get_tree().paused = false
+	
 	$UI.disable_boss_ui()
 	$World/Doors/QueenDoor.destination_scene = Global.QUEEN_SCENE
 	$World/Doors/ChesireDoor.destination_scene = Global.CHESIRE_SCENE

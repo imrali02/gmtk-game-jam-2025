@@ -1,45 +1,77 @@
-[gd_scene load_steps=8 format=3 uid="uid://sbiwob6r77cp"]
+[gd_scene load_steps=11 format=3 uid="uid://sbiwob6r77cp"]
 
 [ext_resource type="Script" uid="uid://eur81cofudkw" path="res://entities/npc/chesire-cat/chesire-cat.gd" id="1_ghoej"]
-[ext_resource type="Texture2D" uid="uid://du5vyglsnjya4" path="res://assets/chesire_cat_temp.png" id="2_3t832"]
+[ext_resource type="Texture2D" uid="uid://b7u3ukjc2a2y5" path="res://assets/sprite-sheets/chesire_cat_sprite_sheet.png" id="2_3kbga"]
 [ext_resource type="Script" uid="uid://b4sw1u6yl27fx" path="res://entities/rewinder.gd" id="3_3kbga"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_omn5r"]
+atlas = ExtResource("2_3kbga")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqspu"]
+atlas = ExtResource("2_3kbga")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df3d1"]
+atlas = ExtResource("2_3kbga")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apd4p"]
+atlas = ExtResource("2_3kbga")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7sh8"]
+atlas = ExtResource("2_3kbga")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0mvo"]
+atlas = ExtResource("2_3kbga")
+region = Rect2(640, 640, 640, 640)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3t832"]
-
-[sub_resource type="Animation" id="Animation_3kbga"]
-resource_name = "head_throw"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_omn5r"]
-_data = {
-&"head_throw": SubResource("Animation_3kbga")
-}
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_eqspu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omn5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqspu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df3d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apd4p")
+}],
+"loop": true,
+"name": &"head_off",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7sh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0mvo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}]
 
 [node name="Chesire Cat" type="CharacterBody2D"]
 script = ExtResource("1_ghoej")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-149, 141, 12, 141, 60, 107, 89, 96, 134, 65, 151, 65, 149, 34, 98, 36, 60, 42, 8, 19, -20, -9, -6, -35, -46, -38, -89, -20, -122, 4, -131, 0, -113, -33, -36, -51, -2, -81, -10, -114, -48, -137, -64, -117, -32, -93, -57, -67, -145, -39)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -1)
-scale = Vector2(0.328889, 0.328889)
-texture = ExtResource("2_3t832")
+polygon = PackedVector2Array(45, 98, 133, 71, 155, 40, 134, -14, 114, -18, 115, -49, 88, -76, 30, -73, 18, -102, 32, -137, 64, -157, 41, -166, -21, -121, -97, -136, -98, -80, -95, -20, -130, 49, -80, 85)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.604688, 0.604688)
 sprite_frames = SubResource("SpriteFrames_3t832")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatedSprite2D"]
-root_node = NodePath("../AnimationTree")
-libraries = {
-&"": SubResource("AnimationLibrary_omn5r")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="AnimatedSprite2D"]
-root_node = NodePath(".")
-tree_root = SubResource("AnimationNodeStateMachine_eqspu")
-anim_player = NodePath("../AnimationPlayer")
+animation = &"head_off"
+frame = 3
+frame_progress = 0.167308
 
 [node name="Rewinder" type="Node2D" parent="."]
 script = ExtResource("3_3kbga")

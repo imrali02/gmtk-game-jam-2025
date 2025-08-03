@@ -5,12 +5,12 @@ extends CharacterBody2D
 var SPEED = 200
 var health = 100
 var max_health = 100
-
+var level_bounds = Rect2(400, 270, 1550, 800)
+@onready var sprite = $AnimatedSprite2D
 var rng
 var randomnum
 
 var pipe_scene
-var smoke_cloud
 var smoke_wave
 
 enum {
@@ -31,17 +31,14 @@ func _ready():
 	
 	pipe_scene = preload("res://entities/npc/caterpillar/puff_pipe.tscn")
 	smoke_wave = preload("res://entities/npc/caterpillar/smoke_wave.tscn")
-	smoke_cloud = preload("res://entities/npc/caterpillar/smoke_cloud.tscn")
 	
 	# Add to rewindable group
 	add_to_group("rewindable")
 	add_to_group("boss")
+	add_to_group("caterpillar")
 
 func teleport_to_corner():
 	# Get the corners of the map
-	
-	var level_bounds = Rect2(400, 270, 1550, 800)
-	
 	var corners = [
 		Vector2(level_bounds.position.x, level_bounds.position.y),  # top left
 		Vector2(level_bounds.size.x, level_bounds.position.y),  # top right
@@ -55,8 +52,7 @@ func teleport_to_corner():
 	
 	# Create smoke clouds at all corners
 	for i in range(4):
-		print("making a new cloud")
-		var smoke_cloud = smoke_cloud.instantiate()
+		var smoke_cloud = smoke_wave.instantiate()
 		smoke_cloud.position = corners[i]
 		get_parent().add_child(smoke_cloud)
 	
@@ -84,9 +80,6 @@ func puff_pipe_attack():
 	pipe.target = player.global_position
 	get_parent().add_child(pipe)
 	
-	attack_in_progress = false
-	state = STAY
-	
 func smoke_wave_attack():
 	attack_in_progress = true
 	
@@ -113,9 +106,8 @@ func smoke_wave_attack():
 func create_smoke_wave(radius):
 	# Create a smoke cloud that expands outward
 	var smoke_wave = smoke_wave.instantiate()
-	var viewport_rect = get_viewport_rect().size
-	var smoke_x = rng.randi_range(0, viewport_rect.x-500)
-	var smoke_y = rng.randi_range(0, viewport_rect.y-400)
+	var smoke_x = rng.randi_range(0, level_bounds.size.x)
+	var smoke_y = rng.randi_range(0, level_bounds.size.y)
 	smoke_wave.position = Vector2(smoke_x, smoke_y)
 	smoke_wave.scale = Vector2(0.5, 0.5)
 	smoke_wave.expanding = true
@@ -127,14 +119,17 @@ func launch_attack():
 	print("Launching attack: " + str(attack))
 	
 	if attack == 0:
-		for i in range(3) :
-			puff_pipe_attack()
+		sprite.play("smoke")
+		puff_pipe_attack()
 	elif attack == 1:
-		print("teleporting")
+		sprite.play("slouch")
 		smoke_cloud_attack()
 	elif attack == 2:
-		print("smoke wave incoming")
+		sprite.play("cough")
 		smoke_wave_attack()
 		
 func take_damage(damage):
 	Global.boss_health -= damage
+	sprite.modulate = Color(1, 0, 0)  # Red tint
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1)  # Reset to normal

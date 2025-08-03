@@ -6,18 +6,12 @@ var bounce_count = 0
 var max_bounces = 3
 var damage = 15
 var cat_body = null
+@onready var collider = $CollisionShape2D
 
 func _ready():
 	add_to_group("rewindable")
 	
-	var area = Area2D.new()
-	var collision = CollisionShape2D.new()
-	var shape = CircleShape2D.new()
-	shape.radius = 30
-	collision.shape = shape
-	area.add_child(collision)
-	area.connect("body_entered", _on_body_entered)
-	add_child(area)
+	self.connect("body_entered", _on_body_entered)
 
 func initialize(initial_direction, parent_cat):
 	direction = initial_direction.normalized()
@@ -25,6 +19,7 @@ func initialize(initial_direction, parent_cat):
 
 func _physics_process(delta):
 	
+	collider.disabled = false
 	# Move the head
 	position += direction * speed * delta
 
@@ -54,6 +49,7 @@ func _physics_process(delta):
 	
 func return_to_cat():
 	if cat_body:
+		collider.disabled = true
 		var tween = create_tween()
 		tween.tween_property(self, "global_position", cat_body.global_position, 0.5).set_ease(Tween.EASE_IN)
 		tween.tween_callback(queue_free)

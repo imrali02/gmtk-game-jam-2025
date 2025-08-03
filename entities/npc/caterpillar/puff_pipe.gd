@@ -9,7 +9,18 @@ var lifetime = 3.0
 @export var atlas_texture: AtlasTexture
 @onready var sprite = $Sprite2D
 
+var player
+var boss
+
 func _ready():
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
+		
+	var bosses = get_tree().get_nodes_in_group("caterpillar")
+	if bosses.size() > 0:
+		boss = bosses[0]
+	
 	# Randomize region index
 	var random_column = randi() % 8
 	var random_row = randi() % 5
@@ -40,7 +51,9 @@ func _physics_process(delta):
 	global_position += direction * speed * delta
 
 func _on_body_entered(body):
-	if body.is_in_group("player") || body.is_in_group("boss"):
-		body.take_damage(damage)
+	if body.is_in_group("player"):
+		player.take_damage(damage)
+	if body.is_in_group("boss"):
+		boss.take_damage(damage)
 		
 		queue_free() 	# Destroy the projectile

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d18k3hi26lsk1"
-path="res://.godot/imported/Removing_Head_Cat_2.PNG-adab07d46042d6a7342f5fd06763823a.ctex"
+uid="uid://dytnkgkfup2w5"
+path="res://.godot/imported/caterpillar_sprite_sheet.png-d175068408334f0a34bb306ea2051d7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player-sprites/Removing_Head_Cat_2.PNG"
-dest_files=["res://.godot/imported/Removing_Head_Cat_2.PNG-adab07d46042d6a7342f5fd06763823a.ctex"]
+source_file="res://assets/sprite-sheets/caterpillar_sprite_sheet.png"
+dest_files=["res://.godot/imported/caterpillar_sprite_sheet.png-d175068408334f0a34bb306ea2051d7b.ctex"]
 
 [params]
 

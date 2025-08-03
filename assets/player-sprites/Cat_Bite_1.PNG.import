@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4fu4j1b4kb8m"
-path="res://.godot/imported/Removing_Head_Cat_3.PNG-09f5e4a7e6ffe323ddda6ea9f3132454.ctex"
+uid="uid://utfswn240e38"
+path="res://.godot/imported/Cat_Bite_1.PNG-7fea5682944d6f5ebe2e25a27af06648.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player-sprites/Removing_Head_Cat_3.PNG"
-dest_files=["res://.godot/imported/Removing_Head_Cat_3.PNG-09f5e4a7e6ffe323ddda6ea9f3132454.ctex"]
+source_file="res://assets/player-sprites/Cat_Bite_1.PNG"
+dest_files=["res://.godot/imported/Cat_Bite_1.PNG-7fea5682944d6f5ebe2e25a27af06648.ctex"]
 
 [params]
 

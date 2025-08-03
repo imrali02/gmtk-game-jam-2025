@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready():
 	Global.boss_name = "The Cat"
-	Global.max_boss_health = 500.0
+	Global.max_boss_health = 250.0
 	Global.boss_health = Global.max_boss_health
 	
 	$UI.enable_boss_ui()

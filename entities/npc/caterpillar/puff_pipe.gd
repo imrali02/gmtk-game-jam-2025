@@ -51,11 +51,11 @@ func _physics_process(delta):
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
+		print("letter hit player")
 		player.take_damage(damage)
-		queue_free() 	# Destroy the projectile	
-	if body.is_in_group("boss") && $Rewinder.rewinding:
+	if body.is_in_group("boss"):
+		print("letter hit boss")
 		boss.take_damage(damage)
-		queue_free()
 	return
 		
 	

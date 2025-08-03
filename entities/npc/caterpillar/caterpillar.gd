@@ -52,9 +52,9 @@ func teleport_to_corner():
 	
 	# Create smoke clouds at all corners
 	for i in range(4):
-		var smoke_cloud = smoke_wave.instantiate()
-		smoke_cloud.position = corners[i]
-		get_parent().add_child(smoke_cloud)
+		var smoke_wave = smoke_wave.instantiate()
+		smoke_wave.position = corners[i]
+		get_parent().add_child(smoke_wave)
 	
 	global_position = target_position # Teleport to the chosen corner
 	attack_in_progress = false
@@ -116,7 +116,6 @@ func create_smoke_wave(radius):
 
 func launch_attack():
 	var attack = rng.randi_range(0, 2)
-	print("Launching attack: " + str(attack))
 	
 	if attack == 0:
 		sprite.play("smoke")

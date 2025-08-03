@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
 [ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_w46tp"]
-[ext_resource type="Script" path="res://ui/dialogue_area.gd" id="3_3vkek"]
+[ext_resource type="Script" uid="uid://qbinckmjuve3" path="res://ui/dialogue_area.gd" id="3_3vkek"]
 [ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="3_7hrjk"]
-[ext_resource type="Script" path="res://ui/pause_menu.gd" id="3_pylni"]
+[ext_resource type="Script" uid="uid://c7gklf2wr7dg4" path="res://ui/pause_menu.gd" id="3_pylni"]
 [ext_resource type="Script" uid="uid://dkfi42f0vupys" path="res://ui/dev_console.gd" id="6_xh48a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
@@ -215,6 +215,7 @@ process_mode = 3
 visible = false
 
 [node name="DevConsole" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5

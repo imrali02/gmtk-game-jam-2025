@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_w46tp"]
 [ext_resource type="Script" uid="uid://qbinckmjuve3" path="res://ui/dialogue_area.gd" id="3_3vkek"]
 [ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="3_7hrjk"]
-[ext_resource type="Script" path="res://ui/pause_menu.gd" id="3_pylni"]
+[ext_resource type="Script" uid="uid://c7gklf2wr7dg4" path="res://ui/pause_menu.gd" id="3_pylni"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
 font_color = Color(1, 0, 0, 1)

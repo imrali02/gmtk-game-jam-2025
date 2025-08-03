@@ -58,7 +58,7 @@ func _physics_process(delta):
 				sprite.play("conjure")
 				for i in 8:
 					var card = card_scene.instantiate()
-					var tf = Vector2(150, 0).rotated(i * 2 * PI / 8)
+					var tf = Vector2(200, 0).rotated(i * 2 * PI / 8)
 					card.position += tf
 					card.is_heart = (i == heart_card)
 					card.get_node("CollisionShape2D").set_deferred("disabled", i == heart_card)

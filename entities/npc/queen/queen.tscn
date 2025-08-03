@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://bhovod2txufxb"]
+[gd_scene load_steps=28 format=3 uid="uid://bhovod2txufxb"]
 
 [ext_resource type="Script" uid="uid://dst3xdb4s37vx" path="res://entities/npc/queen/queen.gd" id="1_wmaki"]
+[ext_resource type="Texture2D" uid="uid://nu8cnkgtq5o4" path="res://assets/player-sprites/Queen_Headless_Body.PNG" id="3_d4pq5"]
 [ext_resource type="Texture2D" uid="uid://o5pggfk8gwbl" path="res://assets/sprite-sheets/queen_sprite_sheet.png" id="3_r08ko"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1w0q"]
@@ -54,6 +55,7 @@ atlas = ExtResource("3_r08ko")
 region = Rect2(0, 1280, 640, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cf6qb"]
+atlas = ExtResource("3_d4pq5")
 region = Rect2(0, 0, 640, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r08ko"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqtuihg1jyqeg"
-path="res://.godot/imported/smoke_cloud_letters.png-88b0e5cfed7fbcccb2b460e2ae35a4cf.ctex"
+uid="uid://cropuakap5fcj"
+path="res://.godot/imported/smoke_letters.png-311783ba7f9c843a5af156370099a98a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/smoke_cloud_letters.png"
-dest_files=["res://.godot/imported/smoke_cloud_letters.png-88b0e5cfed7fbcccb2b460e2ae35a4cf.ctex"]
+source_file="res://assets/smoke_letters.png"
+dest_files=["res://.godot/imported/smoke_letters.png-311783ba7f9c843a5af156370099a98a.ctex"]
 
 [params]
 

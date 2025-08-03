@@ -6,7 +6,19 @@ var direction = Vector2.ZERO
 var damage = 10
 var lifetime = 3.0
 
+@export var atlas_texture: AtlasTexture
+@onready var sprite = $Sprite2D
+
 func _ready():
+	# Randomize region index
+	var random_column = randi() % 8
+	var random_row = randi() % 5
+	
+	# Clone the AtlasTexture and assign a new region
+	var random_texture = atlas_texture.duplicate()
+	random_texture.region = Rect2(random_column * 120, random_row * 120, 120, 120)
+	sprite.texture = random_texture
+	
 	# Set up the direction towards the target
 	direction = (target - global_position).normalized()
 	

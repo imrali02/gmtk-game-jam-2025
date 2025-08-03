@@ -39,12 +39,12 @@ func _ready():
 func teleport_to_corner():
 	# Get the corners of the map
 	
-	var map_size = $"../World/Floor/ReferenceRect"
+	var map_size = get_viewport_rect().size
 	
 	var corners = [
-		Vector2(map_size.x + 450, map_size.y + 250),  # top left
-		Vector2(map_size.x - 450, map_size.y + 250),  # top right
-		Vector2(map_size.x + 450, map_size.y - 250),  # bottom left
+		Vector2(450, 250),  # top left
+		Vector2(map_size.x - 450, 250),  # top right
+		Vector2(450, map_size.y - 250),  # bottom left
 		Vector2(map_size.x - 450, map_size.y - 250)  # bottom right
 	]
 	
@@ -113,8 +113,8 @@ func create_smoke_wave(radius):
 	# Create a smoke cloud that expands outward
 	var smoke_wave = smoke_wave.instantiate()
 	var viewport_rect = get_viewport_rect().size
-	var smoke_x = rng.randi_range(0, viewport_rect.x)
-	var smoke_y = rng.randi_range(0, viewport_rect.y)
+	var smoke_x = rng.randi_range(0, viewport_rect.x-500)
+	var smoke_y = rng.randi_range(0, viewport_rect.y-400)
 	smoke_wave.position = Vector2(smoke_x, smoke_y)
 	smoke_wave.scale = Vector2(0.5, 0.5)
 	smoke_wave.expanding = true
@@ -127,11 +127,11 @@ func launch_attack():
 	print("Launching attack: " + str(attack))
 	
 	if attack == 0:
-		print("puff pipe incoming")
-		state = puff_pipe_attack()
+		for i in range(3) :
+			puff_pipe_attack()
 	elif attack == 1:
 		print("teleporting")
-		state = smoke_cloud_attack()
+		smoke_cloud_attack()
 	elif attack == 2:
 		print("smoke wave incoming")
-		state = smoke_wave_attack()
+		smoke_wave_attack()

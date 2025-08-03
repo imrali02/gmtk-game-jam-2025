@@ -6,7 +6,7 @@ var acceleration: float = 10.0
 var friction: float = 8.0
 var direction: Vector2 = Vector2.ZERO
 
-var animations
+@onready var sprite
 
 var dash_speed: float = 1200.0
 var is_dashing: bool = false
@@ -15,7 +15,7 @@ var dash_direction: Vector2 = Vector2.ZERO
 
 func _ready():
 	add_to_group("player")
-	animations = $AnimatedSprite2D
+	sprite = $AnimatedSprite2D
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("rewind") and Global.can_rewind():
@@ -30,16 +30,16 @@ func _process(delta: float) -> void:
 	Global.update_player_rewind_stamina(Global.MAX_REWIND_STAMINA * 0.5 * delta / $Rewinder.replay_duration)
 	
 	if Input.is_action_pressed("ui_right"):
-		animations.play("walk_right")
+		sprite.play("walk_right")
 		
 	if Input.is_action_pressed("ui_left"):
-		animations.play("walk_left")
+		sprite.play("walk_left")
 		
 	if Input.is_action_pressed("ui_up"):
-		animations.play("walk_backwards")
+		sprite.play("walk_backwards")
 		
 	if Input.is_action_pressed("ui_down"):
-		animations.play("walk_forwards")
+		sprite.play("walk_forwards")
 	
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -55,10 +55,10 @@ func _process(delta: float) -> void:
 		can_dash = false
 		$DashCooldownTimer.start()
 		if Input.is_action_pressed("ui_right"):
-			animations.play("dash_right")
+			sprite.play("dash_right")
 		
 		if Input.is_action_pressed("ui_left"):
-			animations.play("dash_left")
+			sprite.play("dash_left")
 		velocity = lerp(velocity, direction * dash_speed, (dash_speed / 4) * delta)
 
 func _physics_process(delta: float) -> void:
@@ -73,6 +73,6 @@ func _on_dash_cooldown_timer_timeout():
 func take_damage(damage: float) -> void:
 	Global.update_player_health(-damage)
 	
-	$Sprite2D.modulate = Color(1, 0, 0)  # Red tint
+	sprite.modulate = Color(1, 0, 0)  # Red tint
 	await get_tree().create_timer(0.1).timeout
-	$Sprite2D.modulate = Color(1, 1, 1)  # Reset to normal
+	sprite.modulate = Color(1, 1, 1)  # Reset to normal

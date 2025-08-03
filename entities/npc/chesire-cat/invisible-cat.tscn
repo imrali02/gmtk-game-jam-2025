@@ -13,7 +13,12 @@ animations = [{
 "texture": ExtResource("2_3t832")
 }],
 "loop": true,
-"name": &"default",
+"name": &"bite",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"smile",
 "speed": 5.0
 }]
 
@@ -30,3 +35,4 @@ shape = SubResource("CircleShape2D_1")
 position = Vector2(2, -1)
 scale = Vector2(0.486111, 0.486111)
 sprite_frames = SubResource("SpriteFrames_2ij5w")
+animation = &"bite"

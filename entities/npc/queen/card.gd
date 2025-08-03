@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 var is_heart
 var face_up
-var card_back = preload("res://assets/card_back_temp.png")
-var spade_face = preload("res://assets/card_face_spade_temp.png")
-var heart_face = preload("res://assets/card_face_heart_temp.png")
+var card_back = preload("res://assets/card_back.png")
+var spade_face = preload("res://assets/card_face_spades.png")
+var heart_face = preload("res://assets/card_face_heart.png")
 var player_ref
 
 func _ready():

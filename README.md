@@ -1,6 +1,6 @@
-# Raccacoonie - GMTK Game Jam 2025 Submission
+# Wonderloop- GMTK Game Jam 2025 Submission
 
-A top-down 2D game prototype created with Godot
+A top-down Souls-like RPG created with Godot, inspired by characters from Alice's Adventures in Wonderland by Lewis Caroll
 
 ## Assets Used (Attribution)
 
@@ -9,10 +9,13 @@ https://actg.itch.io/trees
 https://www.dafont.com/cotton-cloud.font
 https://pixabay.com/sound-effects/mechanical-stopwatch-ticking-30-seconds-364932/
 https://opengameart.org/content/sword-0
+https://www.kenney.nl/assets/playing-cards-pack
 
 sounds:
 https://opengameart.org/content/battle-theme-0
 https://opengameart.org/content/dark-forest-theme (ATTRIBUTION: The Cynic Project / cynicmusic.com / pixelsphere.org)
+https://opengameart.org/content/mystical-forest-theme
+https://opengameart.org/content/mysterious-clock
 
 ## Controls
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://76r4mwgjt588"]
 
-[ext_resource type="Script" uid="uid://dst5xc15gku7" path="res://entities/npc/queen-level/homing_head.gd" id="1_wugvv"]
+[ext_resource type="Script" uid="uid://dst5xc15gku7" path="res://entities/npc/queen/homing_head.gd" id="1_wugvv"]
 [ext_resource type="Texture2D" uid="uid://bqiqfj52rlw10" path="res://assets/head_sprite_temp.png" id="2_u10si"]
 [ext_resource type="PackedScene" uid="uid://cskc2d5phyl7d" path="res://entities/rewinder.tscn" id="3_0s1sx"]
 

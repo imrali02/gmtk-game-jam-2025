@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://csrxmnf55la5f"]
 
 [ext_resource type="Script" uid="uid://dgs1uv7d01okx" path="res://entities/npc/caterpillar/smoke_cloud.gd" id="1_yjvnk"]
-[ext_resource type="Texture2D" uid="uid://bvs3g542wtysi" path="res://assets/head_sprite.png" id="2_yf811"]
+[ext_resource type="Texture2D" uid="uid://bqiqfj52rlw10" path="res://assets/head_sprite_temp.png" id="2_yf811"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 50.0

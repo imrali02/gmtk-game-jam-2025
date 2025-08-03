@@ -15,7 +15,7 @@ animations = [{
 "texture": ExtResource("2_2ji5l")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"roll",
 "speed": 5.0
 }]
 
@@ -29,7 +29,7 @@ script = ExtResource("1_yjvnk")
 position = Vector2(1.99998, -3)
 scale = Vector2(0.182192, 0.182192)
 sprite_frames = SubResource("SpriteFrames_0j606")
-animation = &"new_animation"
+animation = &"roll"
 
 [node name="Area2D" type="Area2D" parent="."]
 

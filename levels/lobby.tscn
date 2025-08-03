@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_63tst"]
 [ext_resource type="PackedScene" uid="uid://cn803c0xqyv1f" path="res://entities/door.tscn" id="2_n1gxf"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_3ohsu"]
-[ext_resource type="PackedScene" path="res://entities/npc/alice.tscn" id="4_63tst"]
+[ext_resource type="PackedScene" uid="uid://cpah0tbdc66u" path="res://entities/npc/alice.tscn" id="4_63tst"]
 [ext_resource type="AudioStream" uid="uid://b0ob4tc24yjga" path="res://assets/music/lobby_theme.mp3" id="5_63tst"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]

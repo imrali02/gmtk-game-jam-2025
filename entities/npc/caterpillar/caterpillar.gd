@@ -35,6 +35,7 @@ func _ready():
 	
 	# Add to rewindable group
 	add_to_group("rewindable")
+	add_to_group("boss")
 
 func teleport_to_corner():
 	# Get the corners of the map
@@ -135,3 +136,6 @@ func launch_attack():
 	elif attack == 2:
 		print("smoke wave incoming")
 		smoke_wave_attack()
+		
+func take_damage(damage):
+	Global.boss_health -= damage

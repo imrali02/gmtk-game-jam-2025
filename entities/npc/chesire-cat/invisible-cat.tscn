@@ -1,16 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://dixmw21ykkva0"]
+[gd_scene load_steps=8 format=3 uid="uid://dixmw21ykkva0"]
 
 [ext_resource type="Script" uid="uid://cujm51qi15672" path="res://entities/npc/chesire-cat/invisible-cat.gd" id="1_yjvnk"]
-[ext_resource type="Texture2D" uid="uid://du5vyglsnjya4" path="res://assets/chesire_cat_temp.png" id="2_3t832"]
+[ext_resource type="Texture2D" uid="uid://b7u3ukjc2a2y5" path="res://assets/sprite-sheets/chesire_cat_sprite_sheet.png" id="2_2ij5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
-radius = 40.0
+radius = 59.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1na23"]
+atlas = ExtResource("2_2ij5w")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cga7"]
+atlas = ExtResource("2_2ij5w")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdhfb"]
+atlas = ExtResource("2_2ij5w")
+region = Rect2(1280, 0, 640, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ij5w"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_3t832")
+"texture": SubResource("AtlasTexture_1na23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cga7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdhfb")
 }],
 "loop": true,
 "name": &"bite",
@@ -28,11 +46,11 @@ script = ExtResource("1_yjvnk")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-67, -9)
+position = Vector2(-1, -13)
 shape = SubResource("CircleShape2D_1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -1)
+position = Vector2(29, 52)
 scale = Vector2(0.486111, 0.486111)
 sprite_frames = SubResource("SpriteFrames_2ij5w")
 animation = &"bite"

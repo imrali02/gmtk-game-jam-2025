@@ -1,21 +1,150 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckwbulqebdpw3"]
+[gd_scene load_steps=20 format=3 uid="uid://ckwbulqebdpw3"]
 
-[ext_resource type="Texture2D" uid="uid://cu3tk16ahu3th" path="res://assets/caterpillar_temp.png" id="1_lcj7i"]
 [ext_resource type="Script" uid="uid://4g81kf7us5xs" path="res://entities/npc/caterpillar/caterpillar.gd" id="1_wqsgj"]
+[ext_resource type="Texture2D" uid="uid://dytnkgkfup2w5" path="res://assets/sprite-sheets/caterpillar_sprite_sheet.png" id="2_jbqk1"]
 [ext_resource type="PackedScene" uid="uid://cskc2d5phyl7d" path="res://entities/rewinder.tscn" id="3_sglur"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4pqj"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fuso2"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52ai6"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(1280, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2x41"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5bfl"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jev0"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2u6r"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgkj8"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwo44"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(1920, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lam5c"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyvqe"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(640, 1920, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0fnt"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(640, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ta21"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(1280, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1i34"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(1920, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d838q"]
+atlas = ExtResource("2_jbqk1")
+region = Rect2(0, 1920, 640, 640)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8usct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4pqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fuso2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52ai6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2x41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5bfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jev0")
+}],
+"loop": true,
+"name": &"cough",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2u6r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgkj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwo44")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lam5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyvqe")
+}],
+"loop": true,
+"name": &"slouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0fnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ta21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1i34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d838q")
+}],
+"loop": true,
+"name": &"smoke",
+"speed": 5.0
+}]
 
 [node name="Caterpillar" type="CharacterBody2D"]
 z_index = 1
-position = Vector2(226, 149)
 script = ExtResource("1_wqsgj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.00002, 2.99998)
+scale = Vector2(0.476563, 0.476563)
+sprite_frames = SubResource("SpriteFrames_8usct")
+animation = &"slouch"
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-279, -269)
-polygon = PackedVector2Array(297, 467, 289, 385, 423, 358, 379, 310, 360, 82, 298, 66, 297, 243, 225, 254, 179, 303, 140, 337, 157, 371, 207, 380, 247, 382, 239, 473)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, 0)
-texture = ExtResource("1_lcj7i")
+polygon = PackedVector2Array(300, 398, 386, 387, 406, 369, 420, 339, 388, 312, 352, 319, 319, 311, 320, 262, 296, 212, 263, 187, 283, 155, 197, 145, 207, 194, 204, 221, 232, 256, 213, 283, 169, 298, 208, 313, 203, 374, 257, 403)
 
 [node name="Rewinder" parent="." instance=ExtResource("3_sglur")]
 position = Vector2(-226, -148)

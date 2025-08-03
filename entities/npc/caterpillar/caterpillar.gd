@@ -6,7 +6,7 @@ var SPEED = 200
 var health = 100
 var max_health = 100
 var level_bounds = Rect2(400, 270, 1550, 800)
-
+@onready var sprite = $AnimatedSprite2D
 var rng
 var randomnum
 
@@ -119,11 +119,17 @@ func launch_attack():
 	print("Launching attack: " + str(attack))
 	
 	if attack == 0:
+		sprite.play("smoke")
 		puff_pipe_attack()
 	elif attack == 1:
+		sprite.play("slouch")
 		smoke_cloud_attack()
 	elif attack == 2:
+		sprite.play("cough")
 		smoke_wave_attack()
 		
 func take_damage(damage):
 	Global.boss_health -= damage
+	sprite.modulate = Color(1, 0, 0)  # Red tint
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1)  # Reset to normal

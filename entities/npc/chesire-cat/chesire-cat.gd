@@ -41,8 +41,8 @@ func bite_attack():
 	
 	var target_position = get_random_location()
 	invisible_cat.initialize(target_position, self)
-	go_invisible()
 	
+	await get_tree().create_timer(3.0).timeout
 	await reposition()
 	
 	attack_in_progress = false
@@ -80,14 +80,7 @@ func head_throw_attack():
 	
 	cat_head.initialize(direction, self)
 	
-	# Make the cat's head invisible during the attack
-	$Sprite2D.region_enabled = true
-	$Sprite2D.region_rect = Rect2(0, 300, 300, 300)
-	
-	# Return head to cat
 	await get_tree().create_timer(3.0).timeout
-	$Sprite2D.region_enabled = false  # Show full cat again
-	
 	await reposition()
 	
 	attack_in_progress = false

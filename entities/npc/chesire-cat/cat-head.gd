@@ -24,6 +24,7 @@ func initialize(initial_direction, parent_cat):
 	cat_body = parent_cat
 
 func _physics_process(delta):
+	
 	# Move the head
 	position += direction * speed * delta
 
@@ -48,7 +49,9 @@ func _physics_process(delta):
 		
 		if bounce_count >= max_bounces:
 			return_to_cat()
-
+			
+	$Rewinder.handle_rewind()
+	
 func return_to_cat():
 	if cat_body:
 		var tween = create_tween()
@@ -56,13 +59,5 @@ func return_to_cat():
 		tween.tween_callback(queue_free)
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
-		if body.has_method("take_damage"):
+	if body.is_in_group("player") || body.is_in_group("boss"):
 			body.take_damage(damage)
-
-func rewind() -> void:
-	set_physics_process(false)
-
-
-func resume() -> void:
-	set_physics_process(true)

@@ -35,17 +35,18 @@ func _ready():
 	
 	# Add to rewindable group
 	add_to_group("rewindable")
+	add_to_group("boss")
 
 func teleport_to_corner():
 	# Get the corners of the map
 	
-	var map_size = get_viewport_rect().size
+	var level_bounds = Rect2(400, 270, 1550, 800)
 	
 	var corners = [
-		Vector2(450, 250),  # top left
-		Vector2(map_size.x - 450, 250),  # top right
-		Vector2(450, map_size.y - 250),  # bottom left
-		Vector2(map_size.x - 450, map_size.y - 250)  # bottom right
+		Vector2(level_bounds.position.x, level_bounds.position.y),  # top left
+		Vector2(level_bounds.size.x, level_bounds.position.y),  # top right
+		Vector2(level_bounds.position.x, level_bounds.size.y),  # bottom left
+		Vector2(level_bounds.size.x, level_bounds.size.y)  # bottom right
 	]
 	
 	# Choose a random corner of the map
@@ -95,7 +96,7 @@ func smoke_wave_attack():
 	
 	for i in range(wave_count):
 		var timer = Timer.new()
-		timer.wait_time = wave_delay * i
+		timer.wait_time = wave_delay * (i+1)
 		timer.one_shot = true
 		timer.connect("timeout", create_smoke_wave.bind(i * 50))
 		add_child(timer)
@@ -119,7 +120,6 @@ func create_smoke_wave(radius):
 	smoke_wave.scale = Vector2(0.5, 0.5)
 	smoke_wave.expanding = true
 	smoke_wave.max_radius = radius + 100
-	smoke_wave.damage_player = true
 	get_parent().add_child(smoke_wave)
 
 func launch_attack():
@@ -135,3 +135,6 @@ func launch_attack():
 	elif attack == 2:
 		print("smoke wave incoming")
 		smoke_wave_attack()
+		
+func take_damage(damage):
+	Global.boss_health -= damage

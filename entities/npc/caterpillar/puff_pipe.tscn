@@ -9,18 +9,14 @@ atlas = ExtResource("2_3xx24")
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 20.0
 
-[node name="PuffPipe" type="Node2D"]
+[node name="PuffPipe" type="Area2D"]
 script = ExtResource("1_yjvnk")
 atlas_texture = SubResource("AtlasTexture_khwjp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_1")
-
 [node name="Rewinder" type="Node" parent="."]
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1")

@@ -18,6 +18,7 @@ func _ready():
 	
 	# Add to rewindable group
 	add_to_group("rewindable")
+	add_to_group("boss")
 
 func go_invisible():
 	modulate.a = 0.3 # Make the cat partially invisible
@@ -124,8 +125,9 @@ func rewind() -> void:
 	attack_in_progress = false
 	modulate.a = 1.0
 	$Sprite2D.region_enabled = false
-	# Ensure any ongoing teleportation is cancelled during rewind
-
-
+	
 func resume() -> void:
 	set_physics_process(true)
+
+func take_damage(damage):
+	Global.boss_health -= damage

@@ -12,13 +12,14 @@
 size = Vector2(1530.5, 35.5043)
 
 [node name="Caterpillar Level" type="Node2D"]
-position = Vector2(-216, -148)
 script = ExtResource("1_q0d72")
 
 [node name="UI" parent="." instance=ExtResource("2_vhlxl")]
 
 [node name="World" type="Node2D" parent="."]
 z_index = -1
+position = Vector2(-219, -126)
+scale = Vector2(0.994557, 0.98815)
 
 [node name="Floor" type="ColorRect" parent="World"]
 offset_left = 458.0
@@ -52,11 +53,13 @@ rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="Caterpillar" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_w1uiy")]
-position = Vector2(1745, 828)
+position = Vector2(1526, 702)
+scale = Vector2(0.994557, 0.98815)
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("3_xit5g")]
-position = Vector2(1202, 674)
+position = Vector2(983, 548)
+scale = Vector2(0.994557, 0.98815)
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -64,5 +67,7 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wqsgj")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

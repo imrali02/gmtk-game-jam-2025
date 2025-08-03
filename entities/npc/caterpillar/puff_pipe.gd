@@ -33,25 +33,14 @@ func _ready():
 	# Add to rewindable group
 	add_to_group("rewindable")
 	
-	# Create a collision shape for detecting hits
-	var area = Area2D.new()
-	var collision = CollisionShape2D.new()
-	var shape = CircleShape2D.new()
-	shape.radius = 20
-	collision.shape = shape
-	area.add_child(collision)
-	area.connect("body_entered", _on_body_entered)
-	add_child(area)
+	self.connect("body_entered", _on_body_entered)
 
 func _physics_process(delta):
 	# Move the projectile
 	global_position += direction * speed * delta
 
 func _on_body_entered(body):
-	if body.is_in_group("player"):
-		# Deal damage to player
-		if body.has_method("take_damage"):
-			body.take_damage(damage)
+	if body.is_in_group("player") || body.is_in_group("boss"):
+		body.take_damage(damage)
 		
-		# Destroy the projectile
-		queue_free()
+		queue_free() 	# Destroy the projectile

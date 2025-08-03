@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://xcwfwnyxag3g"]
+[gd_scene load_steps=4 format=3 uid="uid://xcwfwnyxag3g"]
 
 [ext_resource type="Script" uid="uid://off4ovb6rulv" path="res://entities/npc/caterpillar/smoke_wave.gd" id="1_vjdmr"]
 [ext_resource type="Texture2D" uid="uid://ukbhami0b7fo" path="res://assets/smoke_cloud.png" id="2_priwo"]
 
-[node name="SmokeWave" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_priwo"]
+radius = 128.016
+
+[node name="SmokeWave" type="Area2D"]
 script = ExtResource("1_vjdmr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_priwo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 21)
+shape = SubResource("CircleShape2D_priwo")

@@ -121,5 +121,5 @@ func launch_attack():
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
-		if state == SHIELDS_FACE_UP:
+		if player_ref.is_dashing and state == SHIELDS_FACE_UP:
 			Global.boss_health -= 20.0

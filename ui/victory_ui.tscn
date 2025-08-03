@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://blg70t1ibxo6v"]
+
+[ext_resource type="Script" uid="uid://boq8icanrp70l" path="res://ui/victory_ui.gd" id="1_r681l"]
+[ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="2_xma0c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_damat"]
+font_size = 46
+
+[node name="VictoryUi" type="CanvasLayer"]
+script = ExtResource("1_r681l")
+
+[node name="VictoryLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 223.0
+offset_right = 20.0
+offset_bottom = 246.0
+grow_horizontal = 2
+text = "Victory!"
+label_settings = SubResource("LabelSettings_damat")
+
+[node name="ThanksLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -111.0
+offset_top = 294.0
+offset_right = 117.0
+offset_bottom = 385.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 1
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_damat")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -55.5
+offset_right = 237.0
+offset_bottom = 55.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back to Menu"
+
+[node name="Fader" parent="." instance=ExtResource("2_xma0c")]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

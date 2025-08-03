@@ -14,5 +14,5 @@ func _ready():
 		if Global.defeated_bosses[boss]:
 			door.visible = false
 	
-	Global.reset_values()
+	Global.reset_player()
 	

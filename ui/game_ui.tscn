@@ -127,7 +127,7 @@ grow_vertical = 2
 
 [node name="DialogueLabel" type="Label" parent="DialogueArea/PanelContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 30
 text = "Welcome back! Did you collect any more shards from the three guardians this time? Oh, no worries! I'll be here when you get back, just like last time! Make sure to [R]ewind when your time meter reaches 100%, and give yourself [Space] with your dash! You'll get it eventually!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -254,6 +254,10 @@ layout_mode = 2
 text = "Boss Shards: 0"
 horizontal_alignment = 1
 
+[node name="AddShardButton" type="Button" parent="DevConsole/VBoxContainer"]
+layout_mode = 2
+text = "Add Shard"
+
 [node name="DamagePlayerButton" type="Button" parent="DevConsole/VBoxContainer"]
 layout_mode = 2
 text = "Damage Player: 10%"
@@ -264,5 +268,6 @@ text = "Damage Boss: 10%"
 
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/PanelContainer/VBoxContainer/LobbyButton" to="PauseMenu" method="_on_lobby_button_pressed"]
+[connection signal="pressed" from="DevConsole/VBoxContainer/AddShardButton" to="DevConsole" method="_on_add_shard_button_pressed"]
 [connection signal="pressed" from="DevConsole/VBoxContainer/DamagePlayerButton" to="DevConsole" method="_on_damage_player_button_pressed"]
 [connection signal="pressed" from="DevConsole/VBoxContainer/DamageBossButton" to="DevConsole" method="_on_damage_boss_button_pressed"]

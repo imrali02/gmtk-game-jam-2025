@@ -37,6 +37,9 @@ func update_player_rewind_stamina(delta: float) -> void:
 		get_tree().paused = true
 
 func defeat_boss(boss: String) -> void:
+	if boss not in defeated_bosses or defeated_bosses[boss]:
+		return
+	
 	defeated_bosses[boss] = true
 	boss_shards += 1
 

@@ -1,15 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bndcwsq0j65ma"]
+[gd_scene load_steps=9 format=3 uid="uid://bndcwsq0j65ma"]
 
 [ext_resource type="Script" uid="uid://v8r0evej8cwi" path="res://levels/chesire-level/chesire_level_logic.gd" id="1_wyxhi"]
 [ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_307c1"]
 [ext_resource type="PackedScene" uid="uid://sbiwob6r77cp" path="res://entities/npc/chesire-cat/chesire-cat.tscn" id="3_mnmxr"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="4_isv8e"]
 [ext_resource type="PackedScene" uid="uid://hmcvnsgko6e3" path="res://entities/npc/chesire-cat/trees.tscn" id="5_lfmxs"]
+[ext_resource type="AudioStream" uid="uid://d2kqoj4o54r7d" path="res://assets/music/chesire_cat_theme.ogg" id="6_lh5i6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqvnj"]
-size = Vector2(1864, 43.0033)
+size = Vector2(1465, 43.0033)
 
 [node name="Chesire Level" type="Node2D"]
 script = ExtResource("1_wyxhi")
@@ -21,8 +22,10 @@ process_mode = 0
 z_index = -1
 
 [node name="Floor" type="ColorRect" parent="World"]
-offset_right = 1914.0
-offset_bottom = 1076.0
+offset_left = 271.0
+offset_top = 144.0
+offset_right = 1664.0
+offset_bottom = 927.0
 color = Color(0.2, 0.3, 0.2, 1)
 
 [node name="Walls" type="StaticBody2D" parent="World"]
@@ -30,38 +33,41 @@ collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_748nt")
 
 [node name="WallTop" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(947, -6)
+position = Vector2(965.5, 124)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallBottom" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(939, 1069)
+position = Vector2(961, 950)
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallLeft" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(-15, 325)
+position = Vector2(247, 332)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="WallRight" type="CollisionShape2D" parent="World/Walls"]
-position = Vector2(1902, 358)
+position = Vector2(1681, 365)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_qqvnj")
 
 [node name="Chesire Cat" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_mnmxr")]
-position = Vector2(955, 245)
+position = Vector2(958, 138)
 player = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("4_isv8e")]
-position = Vector2(511, 275)
+position = Vector2(947, 567)
 
 [node name="Trees2" parent="." instance=ExtResource("5_lfmxs")]
-position = Vector2(1579, 515)
+position = Vector2(1510, 719)
 
 [node name="Trees" parent="." instance=ExtResource("5_lfmxs")]
-position = Vector2(252, 499)
+position = Vector2(429, 367)
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 3.0
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lh5i6")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

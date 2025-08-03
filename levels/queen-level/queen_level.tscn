@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://p3ov5jl3bpvr"]
+[gd_scene load_steps=8 format=3 uid="uid://p3ov5jl3bpvr"]
 
 [ext_resource type="Script" uid="uid://dxb0o8nv1yhln" path="res://levels/queen-level/queen_level_logic.gd" id="1_n4na0"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_pkmjv"]
 [ext_resource type="PackedScene" uid="uid://bhovod2txufxb" path="res://entities/npc/queen-level/queen.tscn" id="4_50vpl"]
 [ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="4_pkmjv"]
+[ext_resource type="AudioStream" uid="uid://bvdo38o7dk66l" path="res://assets/music/queen_of_hearts_theme.mp3" id="5_pkmjv"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 
@@ -56,5 +57,8 @@ position = Vector2(955, 285)
 player = NodePath("../Player")
 
 [node name="UI" parent="." instance=ExtResource("4_pkmjv")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_pkmjv")
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

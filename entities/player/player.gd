@@ -31,15 +31,14 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("ui_right"):
 		sprite.play("walk_right")
-		
-	if Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left"):
 		sprite.play("walk_left")
-		
-	if Input.is_action_pressed("ui_up"):
-		sprite.play("walk_backwards")
-		
-	if Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("ui_up"):
+		sprite.play("walk_backwards")	
+	elif Input.is_action_pressed("ui_down"):
 		sprite.play("walk_forwards")
+	else:
+		sprite.pause()
 	
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

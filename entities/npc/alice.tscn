@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpah0tbdc66u"]
+
+[ext_resource type="Script" uid="uid://nul7vdu81utj" path="res://entities/npc/alice.gd" id="1_xomfv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2p3h8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2p3h8"]
+radius = 41.1096
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xomfv"]
+
+[node name="Alice" type="CharacterBody2D"]
+script = ExtResource("1_xomfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2p3h8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2p3h8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.930613, 0.607917, 0.821582, 1)
+position = Vector2(1, 1.5)
+scale = Vector2(40, 65)
+texture = SubResource("PlaceholderTexture2D_xomfv")
+
+[node name="InteractLabel" type="Label" parent="."]
+visible = false
+offset_left = -16.0
+offset_top = -74.0
+offset_right = 24.0
+offset_bottom = -51.0
+text = "[ E ]"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

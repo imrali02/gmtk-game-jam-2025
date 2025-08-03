@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ufflwksi0lay"]
+[gd_scene load_steps=9 format=3 uid="uid://ufflwksi0lay"]
 
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
-[ext_resource type="Texture2D" uid="uid://b8ar58qt7y7hk" path="res://assets/queen_sprite.png" id="2_w46tp"]
+[ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_w46tp"]
+[ext_resource type="Script" uid="uid://qbinckmjuve3" path="res://ui/dialogue_area.gd" id="3_3vkek"]
 [ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="3_7hrjk"]
-[ext_resource type="Script" path="res://ui/pause_menu.gd" id="3_pylni"]
+[ext_resource type="Script" uid="uid://c7gklf2wr7dg4" path="res://ui/pause_menu.gd" id="3_pylni"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h0pbs"]
 font_color = Color(1, 0, 0, 1)
@@ -69,6 +70,7 @@ grow_vertical = 0
 
 [node name="BossLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 36
 text = "Racoonie, Emperor of Rubbish"
 horizontal_alignment = 1
 
@@ -77,8 +79,47 @@ modulate = Color(1, 0.0770396, 0.0483967, 1)
 layout_mode = 2
 value = 77.24
 
+[node name="DialogueArea" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -451.0
+offset_top = -339.0
+offset_right = 454.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("3_3vkek")
+
+[node name="PanelContainer" type="PanelContainer" parent="DialogueArea"]
+custom_minimum_size = Vector2(5.46, 6.515)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -439.5
+offset_top = -163.5
+offset_right = 439.5
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueLabel" type="Label" parent="DialogueArea/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 39
+text = "Welcome back! Did you collect any more shards from the three guardians this time? Oh, no worries! I'll be here when you get back, just like last time! Make sure to [R]ewind when your time meter reaches 100%, and give yourself [Space] with your dash! You'll get it eventually!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="PauseMenu" type="Control" parent="."]
 process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

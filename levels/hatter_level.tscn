@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ds6yvw356qnls" path="res://levels/game.gd" id="1_yx4tc"]
 [ext_resource type="PackedScene" uid="uid://ufflwksi0lay" path="res://ui/game_ui.tscn" id="2_hvauw"]
 [ext_resource type="PackedScene" uid="uid://djbilbq57aoeu" path="res://entities/player/player.tscn" id="3_vbcyo"]
-[ext_resource type="PackedScene" path="res://entities/npc/hatter.tscn" id="4_yx4tc"]
+[ext_resource type="PackedScene" uid="uid://c2nj0af61h0l2" path="res://entities/npc/hatter-level/hatter.tscn" id="4_yx4tc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_748nt"]
 

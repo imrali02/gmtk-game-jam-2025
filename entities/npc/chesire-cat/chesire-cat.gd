@@ -107,7 +107,7 @@ func launch_attack():
 	if attack == 0:
 		head_throw_attack()
 	elif attack == 1:
-		tree_attack()
+		sprite.play("spin")
 	elif attack == 2:
 		bite_attack()
 

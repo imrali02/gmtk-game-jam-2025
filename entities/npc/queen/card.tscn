@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccridunffwu2v"]
 
-[ext_resource type="Script" uid="uid://cvrcskv3ieiel" path="res://entities/npc/queen-level/card.gd" id="1_7v0cp"]
+[ext_resource type="Script" uid="uid://cvrcskv3ieiel" path="res://entities/npc/queen/card.gd" id="1_7v0cp"]
 [ext_resource type="Texture2D" uid="uid://b7b6g3hn4dmxs" path="res://assets/card_back.png" id="2_n80gu"]
-[ext_resource type="PackedScene" uid="uid://dthfstsvm81el" path="res://entities/npc/queen-level/card_rewinder.tscn" id="3_n80gu"]
+[ext_resource type="PackedScene" uid="uid://dthfstsvm81el" path="res://entities/npc/queen/card_rewinder.tscn" id="3_n80gu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n80gu"]
 size = Vector2(69, 96)

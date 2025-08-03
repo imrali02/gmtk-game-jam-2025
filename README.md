@@ -9,6 +9,7 @@ https://actg.itch.io/trees
 https://www.dafont.com/cotton-cloud.font
 https://pixabay.com/sound-effects/mechanical-stopwatch-ticking-30-seconds-364932/
 https://opengameart.org/content/sword-0
+https://www.kenney.nl/assets/playing-cards-pack
 
 sounds:
 https://opengameart.org/content/battle-theme-0

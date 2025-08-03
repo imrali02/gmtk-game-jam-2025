@@ -35,10 +35,10 @@ func _ready():
 	rng.randomize()
 	randomnum = rng.randf()
 	
-	head_scene = preload("res://entities/npc/queen-level/homing_head.tscn")
-	sword_scene = preload("res://entities/npc/queen-level/sword.tscn")
-	soldier_scene = preload("res://entities/npc/queen-level/card_soldier.tscn")
-	card_scene = preload("res://entities/npc/queen-level/card.tscn")
+	head_scene = preload("res://entities/npc/queen/homing_head.tscn")
+	sword_scene = preload("res://entities/npc/queen/sword.tscn")
+	soldier_scene = preload("res://entities/npc/queen/card_soldier.tscn")
+	card_scene = preload("res://entities/npc/queen/card.tscn")
 	
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:

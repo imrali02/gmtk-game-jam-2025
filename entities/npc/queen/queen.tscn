@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bhovod2txufxb"]
 
-[ext_resource type="Script" uid="uid://dst3xdb4s37vx" path="res://entities/npc/queen-level/queen.gd" id="1_wmaki"]
+[ext_resource type="Script" uid="uid://dst3xdb4s37vx" path="res://entities/npc/queen/queen.gd" id="1_wmaki"]
 [ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_6n34y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1w0q"]

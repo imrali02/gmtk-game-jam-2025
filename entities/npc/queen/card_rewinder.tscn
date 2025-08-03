@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dthfstsvm81el"]
 
-[ext_resource type="Script" uid="uid://dmf6b1e5et5r1" path="res://entities/npc/queen-level/card_rewinder.gd" id="1_m76hn"]
+[ext_resource type="Script" uid="uid://dmf6b1e5et5r1" path="res://entities/npc/queen/card_rewinder.gd" id="1_m76hn"]
 
 [node name="CardRewinder" type="Node2D"]
 script = ExtResource("1_m76hn")

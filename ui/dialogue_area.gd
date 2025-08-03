@@ -6,5 +6,5 @@ func _ready():
 func display_dialogue(message: String) -> void:
 	self.visible = true
 	$PanelContainer/DialogueLabel.text = message
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(15.0).timeout
 	self.visible = false

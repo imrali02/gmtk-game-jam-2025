@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var player: CharacterBody2D
 
 var SPEED = 200
-var CENTER_POS = Vector2(616, 339)
-var START_POS = Vector2(616, 59)
+var CENTER_POS = Vector2(955, 584)
+var START_POS = Vector2(955, 285)
 
 var shields_timer = 0.0
 var shields_timer_max = 5.0

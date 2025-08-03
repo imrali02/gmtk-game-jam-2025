@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ufflwksi0lay"]
 
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
-[ext_resource type="Texture2D" uid="uid://b8ar58qt7y7hk" path="res://assets/queen_sprite.png" id="2_w46tp"]
+[ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_w46tp"]
 [ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="3_7hrjk"]
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="3_pylni"]
 

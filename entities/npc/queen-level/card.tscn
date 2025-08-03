@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://ccridunffwu2v"]
 
 [ext_resource type="Script" uid="uid://cvrcskv3ieiel" path="res://entities/npc/queen-level/card.gd" id="1_7v0cp"]
-[ext_resource type="Texture2D" uid="uid://dsxr2epmrulk5" path="res://assets/card_back_temp.png" id="2_n80gu"]
+[ext_resource type="Texture2D" uid="uid://b7b6g3hn4dmxs" path="res://assets/card_back.png" id="2_n80gu"]
 [ext_resource type="PackedScene" uid="uid://dthfstsvm81el" path="res://entities/npc/queen-level/card_rewinder.tscn" id="3_n80gu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n80gu"]
-size = Vector2(82, 107)
+size = Vector2(69, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6gmg"]
-size = Vector2(69, 97)
+size = Vector2(62, 90)
 
 [node name="Card" type="CharacterBody2D"]
 script = ExtResource("1_7v0cp")
@@ -24,11 +24,11 @@ texture = ExtResource("2_n80gu")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1, 0.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_n80gu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.5, -0.5)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_l6gmg")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

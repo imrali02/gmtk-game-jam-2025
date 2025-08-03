@@ -3074,7 +3074,6 @@ sources/4 = SubResource("TileSetAtlasSource_230cx")
 script = ExtResource("1_q0d72")
 
 [node name="UI" parent="." instance=ExtResource("2_vhlxl")]
-visible = false
 
 [node name="World" type="Node2D" parent="."]
 z_index = -1

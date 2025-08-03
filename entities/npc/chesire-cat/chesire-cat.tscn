@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://sbiwob6r77cp"]
+[gd_scene load_steps=21 format=3 uid="uid://sbiwob6r77cp"]
 
 [ext_resource type="Script" uid="uid://eur81cofudkw" path="res://entities/npc/chesire-cat/chesire-cat.gd" id="1_ghoej"]
 [ext_resource type="Texture2D" uid="uid://b7u3ukjc2a2y5" path="res://assets/sprite-sheets/chesire_cat_sprite_sheet.png" id="2_3kbga"]
 [ext_resource type="Script" uid="uid://b4sw1u6yl27fx" path="res://entities/rewinder.gd" id="3_3kbga"]
+[ext_resource type="Texture2D" uid="uid://ckkjd1ugxgek1" path="res://assets/sprite-sheets/cat_spin_sprite_sheet.png" id="3_omn5r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_omn5r"]
 atlas = ExtResource("2_3kbga")
@@ -27,6 +28,42 @@ region = Rect2(0, 640, 640, 640)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0mvo"]
 atlas = ExtResource("2_3kbga")
 region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okl1m"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(0, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f4ng"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(640, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o04r"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(1920, 0, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgac5"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(0, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r82a8"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(640, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iffvq"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(1280, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33xwv"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(1920, 640, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b1s8"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(0, 1280, 640, 640)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwjkh"]
+atlas = ExtResource("3_omn5r")
+region = Rect2(640, 1280, 640, 640)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3t832"]
 animations = [{
@@ -57,6 +94,38 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okl1m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8f4ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o04r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgac5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r82a8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iffvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33xwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b1s8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwjkh")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 6.0
 }]
 
 [node name="Chesire Cat" type="CharacterBody2D"]
@@ -69,7 +138,8 @@ polygon = PackedVector2Array(45, 98, 133, 71, 155, 40, 134, -14, 114, -18, 115, 
 position = Vector2(1, 1)
 scale = Vector2(0.604688, 0.604688)
 sprite_frames = SubResource("SpriteFrames_3t832")
-animation = &"head_off"
+animation = &"spin"
+frame_progress = 0.704471
 
 [node name="Rewinder" type="Node2D" parent="."]
 script = ExtResource("3_3kbga")

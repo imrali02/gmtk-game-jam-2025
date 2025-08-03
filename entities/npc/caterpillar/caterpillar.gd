@@ -129,7 +129,7 @@ func launch_attack():
 		smoke_wave_attack()
 		
 func take_damage(damage):
-	Global.boss_health -= damage
 	sprite.modulate = Color(1, 0, 0)  # Red tint
 	await get_tree().create_timer(0.1).timeout
 	sprite.modulate = Color(1, 1, 1)  # Reset to normal
+	Global.update_boss_health(-damage)

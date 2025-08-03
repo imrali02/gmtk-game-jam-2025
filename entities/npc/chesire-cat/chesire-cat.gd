@@ -103,7 +103,6 @@ func launch_attack():
 		return
 		
 	var attack = rng.randi_range(0, 2)
-	print("Launching attack: " + str(attack))
 	
 	if attack == 0:
 		head_throw_attack()
@@ -121,7 +120,7 @@ func resume() -> void:
 	set_physics_process(true)
 
 func take_damage(damage):
-	Global.boss_health -= damage
 	sprite.modulate = Color(1, 0, 0)  # Red tint
 	await get_tree().create_timer(0.1).timeout
 	sprite.modulate = Color(1, 1, 1)  # Reset to normal
+	Global.update_boss_health(-damage)

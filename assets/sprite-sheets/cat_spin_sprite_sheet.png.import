@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bybkcxwvqpk4x"
-path="res://.godot/imported/Queen_Conjure_3.PNG-e49d8fbfd8b6205dc1f14bee566467be.ctex"
+uid="uid://ckkjd1ugxgek1"
+path="res://.godot/imported/cat_spin_sprite_sheet.png-0038473ea3ed93c568e617f0f89a50a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player-sprites/Queen_Conjure_3.PNG"
-dest_files=["res://.godot/imported/Queen_Conjure_3.PNG-e49d8fbfd8b6205dc1f14bee566467be.ctex"]
+source_file="res://assets/sprite-sheets/cat_spin_sprite_sheet.png"
+dest_files=["res://.godot/imported/cat_spin_sprite_sheet.png-0038473ea3ed93c568e617f0f89a50a3.ctex"]
 
 [params]
 

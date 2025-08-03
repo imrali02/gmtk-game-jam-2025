@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1cud71hb2fs4"
-path="res://.godot/imported/Caterpillar_Slouch_3.PNG-00f91e7484892722e01cceada2f68592.ctex"
+uid="uid://dfxqoxyow5iui"
+path="res://.godot/imported/Banner.PNG-b115d4aa066a0ade6aa283a4eb7a11f5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player-sprites/Caterpillar_Slouch_3.PNG"
-dest_files=["res://.godot/imported/Caterpillar_Slouch_3.PNG-00f91e7484892722e01cceada2f68592.ctex"]
+source_file="res://assets/Banner.PNG"
+dest_files=["res://.godot/imported/Banner.PNG-b115d4aa066a0ade6aa283a4eb7a11f5.ctex"]
 
 [params]
 

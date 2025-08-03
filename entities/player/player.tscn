@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://djbilbq57aoeu"]
+[gd_scene load_steps=43 format=3 uid="uid://djbilbq57aoeu"]
 
 [ext_resource type="Script" uid="uid://desnhp1crktjt" path="res://entities/player/player.gd" id="1_tio2u"]
 [ext_resource type="Texture2D" uid="uid://d1poylj1a7dlp" path="res://assets/sprite-sheets/rabbit_sprite_sheet.png" id="2_sglur"]
@@ -9,10 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://isdcd41xblqf" path="res://assets/player-sprites/Right_5.png" id="7_afbqv"]
 [ext_resource type="Texture2D" uid="uid://x4tcg5pdxjn3" path="res://assets/player-sprites/Right_6.png" id="8_gx6sm"]
 [ext_resource type="Texture2D" uid="uid://bvfimsuobefm" path="res://assets/player-sprites/Backwards_Dash_1.PNG" id="9_yqrof"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fkugw"]
-atlas = ExtResource("2_sglur")
-region = Rect2(0, 1920, 640, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fjmc"]
 atlas = ExtResource("2_sglur")
@@ -25,10 +21,6 @@ region = Rect2(1280, 1920, 640, 640)
 [sub_resource type="AtlasTexture" id="AtlasTexture_26q78"]
 atlas = ExtResource("2_sglur")
 region = Rect2(1920, 1920, 640, 640)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bectd"]
-atlas = ExtResource("2_sglur")
-region = Rect2(2560, 2560, 640, 640)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvtmh"]
 atlas = ExtResource("2_sglur")
@@ -142,9 +134,6 @@ region = Rect2(1920, 2560, 640, 640)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fkugw")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_8fjmc")
 }, {
 "duration": 1.0,
@@ -153,14 +142,11 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_26q78")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_left",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bectd")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wvtmh")
 }, {
@@ -170,9 +156,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a1qjk")
 }],
-"loop": true,
+"loop": false,
 "name": &"dash_right",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [],
 "loop": true,
@@ -323,9 +309,8 @@ script = ExtResource("1_tio2u")
 position = Vector2(1, -2)
 scale = Vector2(0.166797, 0.166797)
 sprite_frames = SubResource("SpriteFrames_ttr27")
-animation = &"idle_down"
+animation = &"dash_left"
 autoplay = "idle_down"
-frame_progress = 0.0329786
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -4.5)

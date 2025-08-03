@@ -29,16 +29,17 @@ func _process(delta: float) -> void:
 		
 	Global.update_player_rewind_stamina(Global.MAX_REWIND_STAMINA * 0.5 * delta / $Rewinder.replay_duration)
 	
-	if Input.is_action_pressed("ui_right"):
-		sprite.play("walk_right")
-	elif Input.is_action_pressed("ui_left"):
-		sprite.play("walk_left")
-	elif Input.is_action_pressed("ui_up"):
-		sprite.play("walk_backwards")	
-	elif Input.is_action_pressed("ui_down"):
-		sprite.play("walk_forwards")
-	else:
-		sprite.pause()
+	if not is_dashing:
+		if Input.is_action_pressed("ui_right"):
+			sprite.play("walk_right")
+		elif Input.is_action_pressed("ui_left"):
+			sprite.play("walk_left")
+		elif Input.is_action_pressed("ui_up"):
+			sprite.play("walk_backwards")	
+		elif Input.is_action_pressed("ui_down"):
+			sprite.play("walk_forwards")
+		else:
+			sprite.pause()
 	
 	direction.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	direction.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

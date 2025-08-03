@@ -5,6 +5,7 @@ extends CharacterBody2D
 var SPEED = 200
 var CENTER_POS = Vector2(955, 584)
 var START_POS = Vector2(955, 285)
+@onready var sprite = $AnimatedSprite2D
 
 var shields_timer = 0.0
 var shields_timer_max = 5.0
@@ -40,6 +41,8 @@ func _ready():
 	soldier_scene = preload("res://entities/npc/queen/card_soldier.tscn")
 	card_scene = preload("res://entities/npc/queen/card.tscn")
 	
+	sprite.play("float")
+	
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player_ref = players[0]
@@ -52,6 +55,7 @@ func _physics_process(delta):
 				state = SHIELDS_FACE_DOWN
 				self.velocity = Vector2.ZERO
 				var heart_card = rng.randi() % 8
+				sprite.play("conjure")
 				for i in 8:
 					var card = card_scene.instantiate()
 					var tf = Vector2(150, 0).rotated(i * 2 * PI / 8)
@@ -95,12 +99,10 @@ func launch_attack():
 	if state == STAY:
 		if attack == 0:
 			# Guillotine attack
-			var head = head_scene.instantiate()
-			head.player = self.player
-			head.position += Vector2(0, 100)
-			add_child(head)
+			sprite.play("behead")
 		elif attack == 1:
 			# Marching cards
+			sprite.play("conjure")
 			var missing = rng.randi() % 5
 			var direction_select = rng.randf()
 			for i in 5:
@@ -114,6 +116,7 @@ func launch_attack():
 					add_child(soldier)
 		elif attack == 2:
 			# Sword
+			sprite.play("conjure")
 			var sword = sword_scene.instantiate()
 			add_child(sword)
 		else:
@@ -123,3 +126,18 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		if player_ref.is_dashing and state == SHIELDS_FACE_UP:
 			Global.boss_health -= 20.0
+
+
+func _on_animated_sprite_2d_animation_finished():
+	var current_anim = sprite.animation
+	print(current_anim)
+	if current_anim != "float":
+		if current_anim == "behead":
+			sprite.play("beheaded")
+			var head = head_scene.instantiate()
+			head.player = self.player
+			head.position += Vector2(0, 100)
+			add_child(head)
+		else:
+			sprite.stop()
+			sprite.play("float")

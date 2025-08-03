@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://02ln6a6gu4ce" path="res://ui/game_ui.gd" id="1_dcmab"]
 [ext_resource type="Texture2D" uid="uid://dxw8ib34xh05h" path="res://assets/queen_sprite_temp.png" id="2_w46tp"]
-[ext_resource type="Script" path="res://ui/dialogue_area.gd" id="3_3vkek"]
+[ext_resource type="Script" uid="uid://qbinckmjuve3" path="res://ui/dialogue_area.gd" id="3_3vkek"]
 [ext_resource type="PackedScene" uid="uid://unwo0hvg7iy" path="res://ui/fader.tscn" id="3_7hrjk"]
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="3_pylni"]
 [ext_resource type="Script" uid="uid://dkfi42f0vupys" path="res://ui/dev_console.gd" id="6_xh48a"]
@@ -14,9 +14,39 @@ font_color = Color(1, 0, 0, 1)
 font_size = 111
 
 [sub_resource type="FontFile" id="FontFile_2uxy6"]
+resource_local_to_scene = false
+resource_name = ""
+fallbacks = Array[Font]([])
+data = PackedByteArray()
+generate_mipmaps = false
+disable_embedded_bitmaps = true
+antialiasing = 1
+font_name = ""
+style_name = ""
+font_style = 0
+font_weight = 400
+font_stretch = 100
 subpixel_positioning = 0
+keep_rounding_remainders = true
+multichannel_signed_distance_field = false
 msdf_pixel_range = 14
 msdf_size = 128
+allow_system_fallback = true
+force_autohinter = false
+hinting = 1
+oversampling = 0.0
+fixed_size = 0
+fixed_size_scale_mode = 0
+opentype_feature_overrides = {}
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/30/0/ascent = 0.0
 cache/0/30/0/descent = 0.0
 cache/0/30/0/underline_position = 0.0

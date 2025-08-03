@@ -6,12 +6,20 @@ var bounce_count = 0
 var max_bounces = 3
 var damage = 15
 var cat_body = null
-@onready var collider = $CollisionShape2D
+@onready var collider = $Area2D/CollisionShape2D
+var player
+var boss
 
 func _ready():
 	add_to_group("rewindable")
 	
-	self.connect("body_entered", _on_body_entered)
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
+		
+	var bosses = get_tree().get_nodes_in_group("cat")
+	if bosses.size() > 0:
+		boss = bosses[0]
 
 func initialize(initial_direction, parent_cat):
 	direction = initial_direction.normalized()
@@ -54,6 +62,8 @@ func return_to_cat():
 		tween.tween_property(self, "global_position", cat_body.global_position, 0.5).set_ease(Tween.EASE_IN)
 		tween.tween_callback(queue_free)
 
-func _on_body_entered(body):
-	if body.is_in_group("player") || body.is_in_group("boss"):
-			body.take_damage(damage)
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+			player.take_damage(damage)
+	if body.is_in_group("boss"):
+			boss.take_damage(damage)

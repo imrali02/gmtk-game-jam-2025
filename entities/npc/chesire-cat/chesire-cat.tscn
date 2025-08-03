@@ -70,9 +70,9 @@ position = Vector2(1, 1)
 scale = Vector2(0.604688, 0.604688)
 sprite_frames = SubResource("SpriteFrames_3t832")
 animation = &"head_off"
-frame = 3
-frame_progress = 0.167308
 
 [node name="Rewinder" type="Node2D" parent="."]
 script = ExtResource("3_3kbga")
 metadata/_custom_type_script = "uid://b4sw1u6yl27fx"
+
+[node name="RepositionTimer" type="Timer" parent="."]

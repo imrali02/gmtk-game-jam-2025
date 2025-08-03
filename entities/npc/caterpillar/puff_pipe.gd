@@ -43,17 +43,19 @@ func _ready():
 	
 	# Add to rewindable group
 	add_to_group("rewindable")
-	
-	self.connect("body_entered", _on_body_entered)
 
 func _physics_process(delta):
+	$Rewinder.handle_rewind()
 	# Move the projectile
 	global_position += direction * speed * delta
 
-func _on_body_entered(body):
+func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		player.take_damage(damage)
-	if body.is_in_group("boss"):
+		queue_free() 	# Destroy the projectile	
+	if body.is_in_group("boss") && $Rewinder.rewinding:
 		boss.take_damage(damage)
+		queue_free()
+	return
 		
-		queue_free() 	# Destroy the projectile
+	

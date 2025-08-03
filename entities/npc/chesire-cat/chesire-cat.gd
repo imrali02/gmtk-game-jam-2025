@@ -8,6 +8,7 @@ var max_health = 100
 
 var rng
 var randomnum
+@onready var sprite = $AnimatedSprite2D
 
 var attack_in_progress = false
 
@@ -18,6 +19,7 @@ func _ready():
 	
 	# Add to rewindable group
 	add_to_group("rewindable")
+	add_to_group("cat")
 	add_to_group("boss")
 
 func go_invisible():
@@ -43,7 +45,7 @@ func bite_attack():
 	invisible_cat.initialize(target_position, self)
 	
 	await get_tree().create_timer(3.0).timeout
-	await reposition()
+	reposition()
 	
 	attack_in_progress = false
 	
@@ -58,7 +60,8 @@ func tree_attack():
 	if trees2 and trees2.has_method("attack"):
 		trees2.attack()
 	
-	await reposition()
+	await get_tree().create_timer(3.0).timeout
+	reposition()
 	
 	attack_in_progress = false
 	
@@ -81,20 +84,19 @@ func head_throw_attack():
 	cat_head.initialize(direction, self)
 	
 	await get_tree().create_timer(3.0).timeout
-	await reposition()
+	reposition()
 	
 	attack_in_progress = false
 
 func reposition():
 	go_invisible()
-	await get_tree().create_timer(0.5).timeout
 	
 	var new_position = get_random_location()
 	
 	var tween = create_tween()
 	tween.tween_property(self, "global_position", new_position, 2.0)
-	await get_tree().create_timer(2.0).timeout
 	modulate.a = 1.0
+	return
 
 func launch_attack():
 	if attack_in_progress:
@@ -114,10 +116,12 @@ func rewind() -> void:
 	set_physics_process(false)
 	attack_in_progress = false
 	modulate.a = 1.0
-	$Sprite2D.region_enabled = false
 	
 func resume() -> void:
 	set_physics_process(true)
 
 func take_damage(damage):
 	Global.boss_health -= damage
+	sprite.modulate = Color(1, 0, 0)  # Red tint
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = Color(1, 1, 1)  # Reset to normal

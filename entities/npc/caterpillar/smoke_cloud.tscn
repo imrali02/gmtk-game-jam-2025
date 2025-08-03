@@ -1,13 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://csrxmnf55la5f"]
+[gd_scene load_steps=4 format=3 uid="uid://c0xh1fidwhgwf"]
 
-[ext_resource type="Script" uid="uid://dgs1uv7d01okx" path="res://entities/npc/caterpillar/smoke_cloud.gd" id="1_yjvnk"]
 [ext_resource type="Texture2D" uid="uid://ukbhami0b7fo" path="res://assets/smoke_cloud.png" id="2_yf811"]
+
+[sub_resource type="GDScript" id="GDScript_ibtbp"]
+script/source = "extends Node2D
+
+var lifetime = 3.0
+var damage = 5
+var damage_interval = 0.5
+var expanding = false
+var max_radius = 150
+var expansion_speed = 100
+var current_radius = 50
+
+var player_in_cloud = false
+var player
+
+func _ready():
+	# Create a timer to destroy the cloud after lifetime
+	var timer = Timer.new()
+	timer.wait_time = lifetime
+	timer.one_shot = true
+	timer.connect(\"timeout\", queue_free)
+	add_child(timer)
+	timer.start()
+	
+	# Add to rewindable group
+	add_to_group(\"rewindable\")
+	
+	self.connect(\"body_entered\", _on_body_entered)
+	self.connect(\"body_exited\", _on_body_exited)
+	
+	var players = get_tree().get_nodes_in_group(\"player\")
+	if players.size() > 0:
+		player = players[0]
+
+func _physics_process(delta):
+	# Handle expansion for smoke wave
+	if expanding:
+		current_radius += expansion_speed * delta
+		
+	var collision = $CollisionShape2D
+	if collision.shape is CircleShape2D:
+		collision.shape.radius = current_radius
+
+	var sprite = $Sprite2D
+	var scale_factor = current_radius / 50.0  # Assuming 50 is the base radius
+	sprite.scale = Vector2(scale_factor, scale_factor)
+	
+	if current_radius >= max_radius:
+		expanding = false
+
+func _on_body_entered(body):
+	if body.is_in_group(\"player\"):
+		player_in_cloud = true
+		player.take_damage(damage)
+
+func _on_body_exited(body):
+	if body.is_in_group(\"player\"):
+		player_in_cloud = false
+		
+"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1"]
 radius = 162.197
 
 [node name="SmokeCloud" type="Area2D"]
-script = ExtResource("1_yjvnk")
+script = SubResource("GDScript_ibtbp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2

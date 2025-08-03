@@ -27,6 +27,10 @@ func _ready():
 	self.connect("body_entered", _on_body_entered)
 	self.connect("body_exited", _on_body_exited)
 	
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		player = players[0]
+	
 	# Set up damage timer
 	damage_timer = Timer.new()
 	damage_timer.wait_time = damage_interval

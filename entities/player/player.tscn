@@ -144,7 +144,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"dash_left",
-"speed": 10.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -158,12 +158,12 @@ animations = [{
 }],
 "loop": false,
 "name": &"dash_right",
-"speed": 10.0
+"speed": 3.0
 }, {
 "frames": [],
 "loop": true,
 "name": &"default",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -224,7 +224,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_backwards",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -247,7 +247,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_forwards",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -270,7 +270,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_left",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -293,7 +293,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk_right",
-"speed": 7.0
+"speed": 6.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sa2q5"]
@@ -309,7 +309,7 @@ script = ExtResource("1_tio2u")
 position = Vector2(1, -2)
 scale = Vector2(0.166797, 0.166797)
 sprite_frames = SubResource("SpriteFrames_ttr27")
-animation = &"dash_left"
+animation = &"walk_right"
 autoplay = "idle_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

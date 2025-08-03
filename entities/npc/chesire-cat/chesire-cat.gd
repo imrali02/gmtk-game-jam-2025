@@ -111,13 +111,10 @@ func launch_attack():
 	print("Launching attack: " + str(attack))
 	
 	if attack == 0:
-		print("head throw")
 		head_throw_attack()
 	elif attack == 1:
-		print("trees")
 		tree_attack()
 	elif attack == 2:
-		print("bite")
 		bite_attack()
 
 func rewind() -> void:

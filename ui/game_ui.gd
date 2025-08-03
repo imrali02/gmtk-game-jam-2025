@@ -12,6 +12,8 @@ func _ready():
 	$DeathScreen.visible = false
 	$PauseMenu.visible = false
 	
+	player_health_bar.max_value = Global.MAX_HEALTH
+	
 	add_to_group("rewindable")
 	add_to_group("game_over")
 
@@ -50,8 +52,21 @@ func game_over() -> void:
 	
 func disable_boss_ui() -> void:
 	boss_health_bar.visible = false
-	boss_label .visible = false
+	boss_label.visible = false
 
 func enable_boss_ui() -> void:
 	boss_health_bar.visible = true
-	boss_label .visible = true
+	boss_label.visible = true
+	boss_health_bar.max_value = Global.max_boss_health
+	
+func on_boss_defeated() -> void:
+	if Global.boss_name == "The Cat":
+		Global.defeat_boss("chesire")
+	elif Global.boss_name == "The Caterpillar":
+		Global.defeat_boss("caterpillar")
+	elif Global.boss_name == "The Queen":
+		Global.defeat_boss("queen")
+	
+	update_ui()
+	await get_tree().create_timer(2).timeout
+	get_tree().call_group("scene_changer", "fade_out_and_change_scene", Global.LOBBY_SCENE)

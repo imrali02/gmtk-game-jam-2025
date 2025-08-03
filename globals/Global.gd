@@ -11,10 +11,16 @@ const CATERPILLER_SCENE: String = "res://levels/caterpillar-level/caterpillar_le
 
 var player_health: float = MAX_HEALTH
 var player_rewind_stamina: float = 0
-
 var boss_name: String = "Racoonie, Robber of Rubbish"
 var max_boss_health: float = 500.0
 var boss_health: float = max_boss_health
+
+var boss_shards = 0
+var defeated_bosses = {
+	"chesire" : false,
+	"caterpillar" : false,
+	"queen" : false
+}
 
 func update_player_health(delta: float) -> void:
 	player_health = clampf(player_health + delta, 0.0, MAX_HEALTH)
@@ -30,11 +36,19 @@ func update_player_rewind_stamina(delta: float) -> void:
 		get_tree().call_group("game_over", "game_over")
 		get_tree().paused = true
 
+func defeat_boss(boss: String) -> void:
+	defeated_bosses[boss] = true
+	boss_shards += 1
+
 func can_rewind() -> bool:
 	return player_rewind_stamina == MAX_REWIND_STAMINA
 	
 func update_boss_health(delta: float) -> void:
 	boss_health = clampf(boss_health + delta, 0.0, max_boss_health)
+	
+	if boss_health == 0.0:
+		get_tree().call_group("game_over", "on_boss_defeated")
+		get_tree().paused = true
 
 func restart() -> void:
 	reset_values()

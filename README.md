@@ -13,6 +13,8 @@ https://opengameart.org/content/sword-0
 sounds:
 https://opengameart.org/content/battle-theme-0
 https://opengameart.org/content/dark-forest-theme (ATTRIBUTION: The Cynic Project / cynicmusic.com / pixelsphere.org)
+https://opengameart.org/content/mystical-forest-theme
+https://opengameart.org/content/mysterious-clock
 
 ## Controls
 

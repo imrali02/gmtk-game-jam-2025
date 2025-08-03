@@ -7,6 +7,8 @@ var damage = 20
 var bite_duration = 0.5
 var is_biting = false
 
+@onready var sprite = $AnimatedSprite2D
+
 func _ready():
 	# Add to rewindable group
 	add_to_group("rewindable")
@@ -40,9 +42,7 @@ func appear_and_bite():
 	tween.tween_callback(func(): is_biting = true)
 	
 	# Play bite animation
-	var bite_tween = create_tween()
-	bite_tween.tween_property(self, "scale", Vector2(1.3, 1.3), bite_duration/2)
-	bite_tween.tween_property(self, "scale", Vector2(1.0, 1.0), bite_duration/2)
+	sprite.play("bite")
 	
 	# Return to cat after bite
 	await get_tree().create_timer(bite_duration).timeout
@@ -59,9 +59,7 @@ func return_to_cat():
 
 func _on_body_entered(body):
 	if body.is_in_group("player") and is_biting:
-		# Deal damage to player
-		if body.has_method("take_damage"):
-			body.take_damage(damage)
+		body.take_damage(damage)
 
 # Rewinder functions
 func rewind() -> void:

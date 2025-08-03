@@ -26,16 +26,16 @@ func initialize(initial_direction, parent_cat):
 func _physics_process(delta):
 	# Move the head
 	position += direction * speed * delta
-	
+
 	# Check for wall collisions
-	var viewport_rect = get_viewport_rect().size
+	var level_bounds = Rect2(300, 170, 1350, 730)
 	var collided = false
 	
-	if position.x <= 0 or position.x >= viewport_rect.x:
+	if position.x <= 0 or position.x >= level_bounds.size.x:
 		direction.x = -direction.x
 		collided = true
-		
-	if position.y <= 0 or position.y >= viewport_rect.y:
+
+	if position.y <= 0 or position.y >= level_bounds.size.y:
 		direction.y = -direction.y
 		collided = true
 	

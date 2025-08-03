@@ -9,15 +9,6 @@ var max_health = 100
 var rng
 var randomnum
 
-enum {
-	HEAD_THROW_ATTACK,
-	TREE_ATTACK,
-	BITE_ATTACK,
-	STAY,
-}
-
-var state = STAY
-
 var attack_in_progress = false
 
 func _ready():
@@ -29,8 +20,14 @@ func _ready():
 	add_to_group("rewindable")
 
 func go_invisible():
-	# Make the cat partially invisible
-	modulate.a = 0.3
+	modulate.a = 0.3 # Make the cat partially invisible
+	
+func get_random_location():
+	# Generate random position within level bounds
+	var level_bounds = Rect2(300, 170, 1350, 730)
+	return Vector2(
+		randf_range(level_bounds.position.x, level_bounds.size.x),
+		randf_range(level_bounds.position.y, level_bounds.size.y))
 	
 func bite_attack():
 	attack_in_progress = true
@@ -41,19 +38,12 @@ func bite_attack():
 	
 	invisible_cat.global_position = global_position
 	
-	# Get a random position on the stage for the bite attack
-	var viewport_size = get_viewport_rect().size
-	var target_position = Vector2(
-		randf_range(100, viewport_size.x - 100),
-		randf_range(100, viewport_size.y - 100)
-	)
-	
+	var target_position = get_random_location()
 	invisible_cat.initialize(target_position, self)
 	go_invisible()
 	
-	await get_tree().create_timer(3.0).timeout
-	modulate.a = 1.0
-	state = STAY
+	await reposition()
+	
 	attack_in_progress = false
 	
 func tree_attack():
@@ -67,9 +57,9 @@ func tree_attack():
 	if trees2 and trees2.has_method("attack"):
 		trees2.attack()
 	
-	await get_tree().create_timer(4.0).timeout
+	await reposition()
+	
 	attack_in_progress = false
-	state = STAY
 	
 func head_throw_attack():
 	attack_in_progress = true
@@ -82,7 +72,7 @@ func head_throw_attack():
 	cat_head.global_position = global_position
 	
 	# Find player position
-	var player = get_tree().get_nodes_in_group("player")[0] if get_tree().get_nodes_in_group("player").size() > 0 else null
+	var player = get_tree().get_nodes_in_group("player")[0]
 	var direction = Vector2.RIGHT
 	
 	direction = (player.global_position - global_position).normalized()
@@ -96,7 +86,21 @@ func head_throw_attack():
 	# Return head to cat
 	await get_tree().create_timer(3.0).timeout
 	$Sprite2D.region_enabled = false  # Show full cat again
+	
+	await reposition()
+	
 	attack_in_progress = false
+
+func reposition():
+	go_invisible()
+	await get_tree().create_timer(0.5).timeout
+	
+	var new_position = get_random_location()
+	
+	var tween = create_tween()
+	tween.tween_property(self, "global_position", new_position, 2.0)
+	await get_tree().create_timer(2.0).timeout
+	modulate.a = 1.0
 
 func launch_attack():
 	if attack_in_progress:
@@ -107,15 +111,12 @@ func launch_attack():
 	
 	if attack == 0:
 		print("head throw")
-		state = HEAD_THROW_ATTACK
 		head_throw_attack()
 	elif attack == 1:
 		print("trees")
-		state = TREE_ATTACK
 		tree_attack()
 	elif attack == 2:
 		print("bite")
-		state = BITE_ATTACK
 		bite_attack()
 
 func rewind() -> void:
@@ -123,8 +124,8 @@ func rewind() -> void:
 	attack_in_progress = false
 	modulate.a = 1.0
 	$Sprite2D.region_enabled = false
+	# Ensure any ongoing teleportation is cancelled during rewind
 
 
 func resume() -> void:
 	set_physics_process(true)
-	state = STAY
